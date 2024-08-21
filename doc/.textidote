@@ -1,0 +1,6 @@
+--output html
+--check es
+--dict ./diccionario/diccionario.es.txt
+--ignore sh:seclen,sh:stacked,sh:nonp,sh:nobreak,sh:nsubdiv,sh:figref,lt:es:SPANISH_WORD_REPEAT_BEGINNING_RULE
+--remove titlepage,titlepage,centering,textwidth,cleardoublepage,centeroffset,oddsidemargin,evensidemargin,large
+--remove-macros cleardoublepage,bfseries,today,tableofcontents,listoffigures,listoftables
