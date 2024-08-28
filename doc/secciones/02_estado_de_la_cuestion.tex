@@ -9,7 +9,7 @@ El \textbf{timetabling} puede definirse generalmente como la actividad de asigna
 Generalmente, en las instituciones de enseñanza son dos los problemas de timetabling que surgen: uno para \textbf{exámenes} (Examination Timetabling Problem) y el otro para la \textbf{programación de cursos} (Course Timetabling Problem y Class/Teacher Timetabling Problem o CTTP) \cite{carter}.\newline
 
 \subsection{Examination Timetabling Problem}
-El ETP básicamente involucra la asignación de una serie de exámenes a un período de examinación dado. Algunas versiones de este problema requieren que el calendario de la solución use el mínimo número de períodos de tiempo. Cada ETP tiene su propio conjunto de restricciones duras y restricciones blandas \cite{AutomatedTimetabling} \cite{NAJIAZIMI2005705}.\newline
+El ETP básicamente involucra la asignación de una serie de exámenes a un período de examinación dado. Algunas versiones de este problema requieren que el calendario de la solución use el mínimo número de períodos de tiempo. Cada ETP tiene su propio conjunto de restricciones duras y restricciones blandas \cite{AutomatedTimetabling,NAJIAZIMI2005705}.\newline
 
 Las restricciones duras deben ser satisfechas por el calendario. Por ejemplo, un estudiante no puede tener dos exámenes al mismo tiempo. Los calendarios que cumplen las restricciones duras se conocen como ``calendarios factibles''.\newline
 
@@ -24,8 +24,6 @@ A continuación se muestra un ejemplo de un algoritmo genético\footnote{Algorit
     \includegraphics[width=1\textwidth]{./imagenes/IGA_ETP.png}
     \caption{Ejemplo de IGA para evolucionar calendarios ``factibles'' \cite{PILLAY2010457}.}
 \end{figure}
-
-\newpage
 
 % \newpage
 
@@ -43,7 +41,7 @@ El UCTTP, es un problema de optimización\footnote{Es un problema que trata de c
 
 El número de restricciones (duras y blandas) en este problema difiere de una institución a otra. Por lo tanto, el objetivo principal de todos los algoritmos mencionados es maximizar el número de restricciones blandas satisfechas en los horarios finales \cite{article_1445178}.\newline
 
-Las restricciones del problema se clasifican en dos clases: duras y blandas. Las duras deben satisfacerse por completo en el problema para que la solución generada sea posible y sin conflictos; no se permite ninguna violación de estas restricciones. Las restricciones blandas están relacionadas con la función objetivo; la cual consiste en maximizar el número de restricciones blandas satisfechas. A diferencia de las restricciones duras, las blandas no tienen que satisfacerse necesariamente; pero a medida que aumenta el número de estas restricciones satisfechas, aumenta la calidad de las soluciones de dicha función. A continuación se presenta una lista de ejemplos de restricciones duras y blandas \cite{BABAEI201543}:
+Las restricciones del problema se clasifican en dos clases: duras y blandas. Las duras deben satisfacerse por completo en el problema para que la solución generada sea posible y sin conflictos; no se permite ninguna violación de estas restricciones. Las restricciones blandas están relacionadas con la función objetivo, la cual consiste en maximizar el número de restricciones blandas satisfechas. A diferencia de las restricciones duras, las blandas no tienen que satisfacerse necesariamente; pero a medida que aumenta el número de estas restricciones satisfechas, aumenta la calidad de las soluciones de dicha función. A continuación se presenta una lista de ejemplos de restricciones duras y blandas \cite{BABAEI201543}:
 
 \begin{itemize}
     \item Un profesor no puede estar en dos lugares al mismo tiempo.
@@ -141,29 +139,27 @@ A priori la opción más simple y menos práctica. Organizamos los grupos según
 \subsection{Google Calendar}
 Es un servicio de agenda y calendario en línea ofrecido por Google\footnote{\url{https://calendar.google.com/calendar}}.  Permite a los usuarios crear y editar eventos. Los eventos tienen una fecha y hora de inicio y fin, además de una descripción. Los usuarios pueden invitar a otros usuarios a sus eventos, y los eventos pueden ser públicos o privados. Los usuarios pueden ver sus eventos en una vista diaria, semanal o mensual. También permite a los usuarios generar múltiples calendarios y compartirlos con otros usuarios. Los usuarios pueden ver los calendarios de otras personas y superponerlos en su propio calendario. Google Calendar también se integra con otras aplicaciones de Google, como Gmail y Google Meet. Google Calendar también se integra con otras aplicaciones de calendario, como Microsoft Outlook y Apple Calendar. Está disponible en la web y en aplicaciones móviles para Android e iOS.
 
-\begin{landscape}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1.5\textwidth, angle=0]{./imagenes/Google_Calendar.png}
+    \includegraphics[width=1\textwidth]{./imagenes/Google_Calendar.png}
     \caption{Ejemplo de uso con Google Calendar.}
 \end{figure}
 
-\end{landscape}
 
 
 \subsection{Microsoft Calendar}
 Es una función integrada en aplicaciones como Outlook y Microsoft 365\footnote{\url{https://outlook.live.com/calendar}} que permite a los usuarios gestionar y organizar sus calendarios personales y profesionales. Facilita la creación y edición de citas, reuniones, y eventos, con opciones de recordatorios y notificaciones. Se sincroniza en la nube, ofreciendo acceso desde múltiples dispositivos, y permite compartir calendarios con otros usuarios. Además, se integra con otros servicios de calendario y herramientas de Microsoft, como Teams, facilitando la coordinación en equipos de trabajo y la gestión eficiente del tiempo.
 
-\newpage
 
-\begin{landscape}
+
+
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1.5\textwidth, angle=0]{./imagenes/Microsoft_calendar.png}
+    \includegraphics[width=1\textwidth]{./imagenes/Microsoft_calendar.png}
     \caption{Ejemplo de uso con Microsoft Calendar.}
 \end{figure}
-\end{landscape}
+\
 
 
 \subsection{Chatbots}
@@ -172,24 +168,24 @@ En un primer momento, era la opción escogida para llevar a cabo este proyecto. 
 \subsubsection*{ChatGPT}
 Es un modelo de lenguaje de inteligencia artificial desarrollado por OpenAI\footnote{\url{https://chatgpt.com/}}. Es capaz de mantener conversaciones con los usuarios y responder preguntas en lenguaje natural. ChatGPT se basa en la arquitectura de transformadores y emplea el aprendizaje profundo para generar respuestas coherentes y relevantes. ChatGPT se puede utilizar en una variedad de aplicaciones, como asistentes virtuales, chatbots y sistemas de diálogo. ChatGPT es capaz de responder preguntas sobre una amplia gama de temas y proporcionar información útil a los usuarios. ChatGPT es una herramienta poderosa para la generación de lenguaje natural y la interacción con los usuarios en línea.
 
-\begin{landscape}
+
     \begin{figure}[H]
         \centering
-        \includegraphics[width=1.5\textwidth, angle=0]{./imagenes/ChatGPT.png}
+        \includegraphics[width=1\textwidth]{./imagenes/ChatGPT.png}
         \caption{Ejemplo con ChatGPT 3.5: solapa las clases.}
     \end{figure}
-\end{landscape}
+
 
 \subsubsection*{Gemini}
 Es una familia de modelos de inteligencia artificial desarrollada por Google DeepMind\footnote{\url{https://gemini.google.com/app}}. Es la evolución de la tecnología detrás de Bard, integrando capacidades avanzadas de procesamiento de lenguaje natural con otros aspectos de la inteligencia artificial, como el razonamiento y la memoria. Gemini está diseñado para realizar tareas complejas que van más allá de la generación de texto, buscando mejorar la comprensión contextual, la generación de respuestas más precisas y la interacción más fluida con los usuarios. Es parte del esfuerzo de Google por mantenerse a la vanguardia en el desarrollo de IA generativa y cognitiva.
 
-\begin{landscape}
+
     \begin{figure}[H]
         \centering
-        \includegraphics[width=1.5\textwidth, angle=0]{./imagenes/Gemini.png}
+        \includegraphics[width=1\textwidth]{./imagenes/Gemini.png}
         \caption{Ejemplo con Gemini (Bard): omite asignaturas.}
     \end{figure}
-\end{landscape}
+
 
 \subsection{Proyectos académicos}
 
@@ -217,12 +213,13 @@ Además de las soluciones comerciales mencionadas, existen otros proyectos acad�
 
 
 % Existen múltiples estudios sobre algoritmos de timetabling para clases y exámenes universitarios:\\
-
+\newpage
+\subsection{Conclusiones}
 Las aplicaciones discutidas anteriormente, como Google Calendar y Microsoft Calendar, son aplicaciones de calendario que permiten a los usuarios programar eventos y recordatorios. Se caracterizan por ser de propósito general, fáciles de usar y accesibles en múltiples dispositivos. Cuentan además con la ventaja de poder ser compartidos con otros usuarios, lo que facilita la colaboración en la programación de eventos.\newline
 
 Por otro lado, los chatbots como ChatGPT y Gemini son aplicaciones de inteligencia artificial que permiten a los usuarios interactuar con un sistema de diálogo. Estos son capaces de responder preguntas y realizar tareas específicas. Son útiles para la programación de eventos en un calendario, ya que permiten a los usuarios interactuar con el sistema de forma natural y conversacional.\newline
 
-Sin embargo, todas estas soluciones tienen una serie de limitaciones que las inadecuadas para el problema propuesto. Entre ellas se incluyen:
+Sin embargo, todas estas soluciones tienen una serie de limitaciones que las hacen inadecuadas para el problema propuesto. Entre ellas se incluyen:
 
 \begin{enumerate}
     \item \textbf{Falta de automatización:} Los usuarios deben participar activamente en la organización de bloques para poder conformar el horario que se adecue a sus necesidades. Este proceso resulta ineficiente y tedioso.

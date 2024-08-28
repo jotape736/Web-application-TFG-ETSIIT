@@ -23,6 +23,11 @@
 \usepackage{booktabs}
 \usepackage{pdflscape}
 \usepackage{enumitem}
+\usepackage{algpseudocode}
+\usepackage{algorithm}
+\usepackage{wrapfig}
+\usepackage{subcaption}
+\usepackage{titlesec}
 
 \usepackage[table,xcdraw]{xcolor}
 \hypersetup{
@@ -72,21 +77,23 @@
 	\newpage
 
 	% Introducción 
-	\input{secciones/01_introduccion}
+	\input{secciones/01_introduccion.tex}
 
 	% Estado del arte
 	% 	1. Crítica al estado del arte
 	% 	2. Propuesta
 	\input{secciones/02_estado_de_la_cuestion.tex}
 	
-	\input{secciones/03_planificacion}
+	\input{secciones/03_planificacion.tex}
 
 	% Análisis del problema
 	% 1. Análisis de requisitos
 	% 2. Análisis de las soluciones
 	% 3. Solucion propuesta
 	% 4. Análisis de seguridad
-	\input{secciones/04_analisis}
+	\input{secciones/04_analisis.tex}
+
+	\input{secciones/05_diseño.tex}
 
 	% Desarrollo bajo sprints: 
 	% 	1. Permitir registros y login de usuarios
@@ -94,20 +101,24 @@
 	% 	3. Desarrollo del sistema de denuncias administrativas y accidentes
 	% 	4. Desarrollo del sistema de croquis
 	%   5. Instalación de la aplicación de manera automática
-	\input{secciones/05_implementacion}
+	\input{secciones/06_implementacion.tex}
+	\input{secciones/07_despliegue_y_validacion.tex}
 
 	% Presupuesto
 
 	% Conclusiones
-	\input{secciones/06_conclusiones}
+	\input{secciones/08_conclusiones.tex}
 
 	% Trabajos futuros
-
-
 	
 	\newpage
+	% \addcontentsline{toc}{chapter}{Bibliografía}
 	\bibliography{bibliografia}
 	\bibliographystyle{plain}
-	
-\end{document}
 
+	\newpage
+	% \addcontentsline{toc}{chapter}{Anexos}
+	\appendix
+	\input{anexos/anexo1.tex}
+
+\end{document}
