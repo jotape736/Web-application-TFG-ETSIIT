@@ -261,6 +261,11 @@ La interacción con la plataforma se basa en dos tipos de actores: los usuarios 
 
 \newcounter{ccCounter}
 \setcounter{ccCounter}{1}
+% Ajustar el espacio entre elementos flotantes
+\setlength{\textfloatsep}{5pt plus 1.0pt minus 2.0pt} % Espacio entre el texto y los elementos flotantes
+\setlength{\floatsep}{5pt plus 1.0pt minus 2.0pt} % Espacio entre dos elementos flotantes
+\setlength{\intextsep}{5pt plus 1.0pt minus 2.0pt} % Espacio entre el texto y los elementos flotantes insertados en el texto
+
 
 \begin{table}[H]
     \centering
@@ -314,7 +319,6 @@ La interacción con la plataforma se basa en dos tipos de actores: los usuarios 
     \caption{CU\theccCounter\ - Autenticar Usuario.}
     \stepcounter{ccCounter}
 \end{table}
-
 
 \begin{table}[H]
     \centering
@@ -553,6 +557,34 @@ La interacción con la plataforma se basa en dos tipos de actores: los usuarios 
     \centering
     \begin{tabular}{|p{4cm}|p{7cm}|}
     \hline
+    \multicolumn{2}{|c|}{\textbf{CU\theccCounter\ - Consultar Horarios Almacenados}} \\ \hline
+    \textbf{Actores} & Usuario Registrado. \\ \hline
+    \textbf{Precondiciones} & El actor está registrado, autenticado en el sistema y ha guardado algún calendario. \\ \hline
+    \textbf{Postcondiciones} & Se muestran los calendarios del actor. \\ \hline
+    \textbf{Flujo principal} & \begin{minipage}[t]{\linewidth}
+        \vspace{1pt}
+        \begin{enumerate}
+            \setlength{\itemsep}{0pt}
+            \setlength{\parskip}{0pt}
+            \setlength{\parsep}{0pt}
+            \item El actor accede a la plataforma.
+            \item El actor ingresa sus crendenciales.
+            \item El sistema autentifica al usuario.
+            \item El actor selecciona la opción ``Consultar Mis Horarios''.
+            \item El sistema muestra sus calendarios guardados.
+        \end{enumerate}
+        \vspace{1pt}
+    \end{minipage} \\ \hline  
+    \end{tabular}
+    \caption{CU\theccCounter\ - Consultar Horarios Almacenados.}
+    \stepcounter{ccCounter}
+\end{table}
+
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|p{4cm}|p{7cm}|}
+    \hline
     \multicolumn{2}{|c|}{\textbf{CU\theccCounter\ - Descargar Combinación}} \\ \hline
     \textbf{Actores} & Usuario Genérico y Usuario Registrado. \\ \hline
     \textbf{Precondiciones} & El actor accede a la plataforma. \\ \hline
@@ -581,37 +613,12 @@ La interacción con la plataforma se basa en dos tipos de actores: los usuarios 
     \stepcounter{ccCounter}
 \end{table}
 
-\begin{table}[H]
-    \centering
-    \begin{tabular}{|p{4cm}|p{7cm}|}
-    \hline
-    \multicolumn{2}{|c|}{\textbf{CU\theccCounter\ - Consultar Horarios Almacenados}} \\ \hline
-    \textbf{Actores} & Usuario Registrado. \\ \hline
-    \textbf{Precondiciones} & El actor está registrado, autenticado en el sistema y ha guardado algún calendario. \\ \hline
-    \textbf{Postcondiciones} & Se muestran los calendarios del actor. \\ \hline
-    \textbf{Flujo principal} & \begin{minipage}[t]{\linewidth}
-        \vspace{1pt}
-        \begin{enumerate}
-            \setlength{\itemsep}{0pt}
-            \setlength{\parskip}{0pt}
-            \setlength{\parsep}{0pt}
-            \item El actor accede a la plataforma.
-            \item El actor ingresa sus crendenciales.
-            \item El sistema autentifica al usuario.
-            \item El actor selecciona la opción ``Consultar Mis Horarios''.
-            \item El sistema muestra sus calendarios guardados.
-        \end{enumerate}
-        \vspace{1pt}
-    \end{minipage} \\ \hline  
-    \end{tabular}
-    \caption{CU\theccCounter\ - Consultar Horarios Almacenados.}
-    \stepcounter{ccCounter}
-\end{table}
 
+\vspace{2pt}
 \begin{landscape}
     \begin{figure}[H]
         \centering
-        \includegraphics[width=1.6\textwidth]{./imagenes/CC_Actores_Comunes.png}
+        \includegraphics[width=1.9\textwidth]{./imagenes/CC_Actores_Comunes.png}
         \caption{Caso de Uso con Actores Comunes.}
     \end{figure}    
 \end{landscape}

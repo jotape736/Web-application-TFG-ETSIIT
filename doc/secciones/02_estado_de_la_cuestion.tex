@@ -2,6 +2,84 @@
 
 Esta sección tiene como objetivo analizar los algoritmos de timetabling existentes y sus aplicaciones en el ámbito universitario. Se discutirán las ventajas y limitaciones de las soluciones actuales y otros trabajos relacionados.\newpage
 
+
+
+\section{IA generativa}
+
+La \textit{IA generativa}\footnote{\url{https://cloud.google.com/use-cases/generative-ai?hl=es}} hace referencia al uso de modelos de inteligencia artificial para la creación de contenido, como texto, imágenes, audio, etc. Se basan en \textit{modelos fundacionales} \footnote{\url{https://aws.amazon.com/es/what-is/foundation-models/}} que son redes neuronales de aprendizaje profundo y que sirven como punto de partida para el desarrollo de modelos de \textit{machine learning}. La IA generativa usa un modelo de aprendizaje automático para aprender patrones y relaciones dentro de un conjunto de datos creados por humanos. A partir de dichos patrones aprendidos, genera contenido.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{./imagenes/large-language-models-vs-generative-ai-1.jpg}
+    \caption{Diferencia entre LLM e IA Generativa \cite{chisw}.}
+\end{figure}
+
+
+En un primer momento, era la opción escogida para llevar a cabo el backend de la plataforma \textbf{GAC}. Sin embargo, tras varias pruebas con diversos modelos como \emph{ChatGPT y Gemini}, se acabó descartando la idea dada la inconsistencia de los asistentes para organizar las clases de forma que no se solaparan y sin alterar los datos de los horarios proporcionados.\newpage
+
+\subsection{Modelos utilizados}
+
+A continuación se presentan los modelos de IA generativa utilizados en las pruebas realizadas para la generación de horarios:
+
+\newcommand{\icon}[1]{\includegraphics[height=18pt]{#1}}
+\subsubsection*{ChatGPT \protect\icon{./imagenes/ChatGPT_logo.png}}
+
+Es un modelo de lenguaje de inteligencia artificial desarrollado por OpenAI\footnote{\url{https://chatgpt.com/}}. Es capaz de mantener conversaciones con los usuarios y responder preguntas en lenguaje natural. ChatGPT se basa en la arquitectura de transformadores y emplea el aprendizaje profundo para generar respuestas coherentes y relevantes. ChatGPT se puede utilizar en una variedad de aplicaciones, como asistentes virtuales, chatbots y sistemas de diálogo. ChatGPT es capaz de responder preguntas sobre una amplia gama de temas y proporcionar información útil a los usuarios. ChatGPT es una herramienta poderosa para la generación de lenguaje natural y la interacción con los usuarios en línea.
+
+\renewcommand{\icon}[1]{\includegraphics[height=18pt]{#1}}
+\subsubsection*{Gemini \protect\icon{./imagenes/gemini-icon.png}}
+
+Es una familia de modelos de inteligencia artificial desarrollada por Google DeepMind\footnote{\url{https://gemini.google.com/app}}. Es la evolución de la tecnología detrás de \textbf{Bard}, integrando capacidades avanzadas de procesamiento de lenguaje natural con otros aspectos de la inteligencia artificial, como el razonamiento y la memoria. Gemini está diseñado para realizar tareas complejas que van más allá de la generación de texto, buscando mejorar la comprensión contextual, la generación de respuestas más precisas y la interacción más fluida con los usuarios. Es parte del esfuerzo de Google por mantenerse a la vanguardia en el desarrollo de IA generativa y cognitiva.
+
+\subsection{Prompt Engineering}
+
+Se refiere al diseño sistemático y la optimización de las instrucciones de entrada para guiar las respuestas de los LLM, garantizando la precisión, relevancia y coherencia de los resultados generados. Este proceso es crucial para aprovechar todo el potencial de estos modelos, haciéndolos más accesibles y aplicables en diversos ámbitos \cite{chen2023unleashing}.
+
+Se empleó el método del \textbf{Role-prompting} con los modelos. Dicha técnica consiste en proporcionar al modelo un rol específico. Este método es efectivo para guiar las respuestas del modelo hacia un objetivo concreto \cite{Zhang_2023}.\newline
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{./imagenes/Role_prompt.png}
+    \caption{Ejemplo de Role-prompting con ChatGPT.}
+\end{figure}
+
+Además del método anterior, se siguieron los siguientes básicos del prompt Engineering \cite{Zhang_2023} para mejorar la calidad de las respuestas generadas por los modelos:
+
+\subsubsection*{Dar instrucciones}
+Se ha observado que las respuestas generadas por los modelos tienden a ser excesivamente generales cuando se le proporcionan instrucciones desprovistas de cualquier descripción suplementaria. Es imprescindible una descripción exhaustiva para resultados más precisos.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{./imagenes/Gemini_contexto.png}
+    \caption{Ejemplo de instrucciónes descriptivas con Gemini.}
+\end{figure}
+
+
+\subsubsection*{Ser claro y preciso}
+Los prompts deben estar exentos de ambigüedades y ser lo más específicos posible. Esto ayuda a los modelos a entender mejor el contexto y a generar respuestas más relevantes.
+
+\subsubsection*{Intentarlo varias veces}
+Debido a la naturaleza no determinista de los modelos basados en LLM, resulta beneficioso probar varias veces a la hora de generar respuestas. Esta técnica, denominada como ``remuestreo'' consiste en ejecutar varias veces el modelo con el mismo prompt y seleccionar la respuesta más adecuada.
+
+\subsection{Resultados obtenidos}
+
+A pesar de seguir las técnicas citadas anteriormente, los modelos de IA generativa no fueron capaces de generar horarios sin solapamientos ni omisiones. Aunque los datos proporcionados en forma de lenguaje natural y en formato JSON, fueron leeidos correctamente la mayoría de las veces, los modelos no pudieron organizar las clases de forma que se ajustaran a las restricciones del problema.\newline
+
+A continuación se muestran imágenes que ejemplifican lo mencionado anteriormente:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{./imagenes/ChatGPT.png}
+    \caption{Ejemplo con ChatGPT 3.5: solapa las clases.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{./imagenes/Gemini.png}
+    \caption{Ejemplo con Gemini (Bard): omite asignaturas.}
+\end{figure}
+
+
 \section{Algoritmos de timetabling}
 
 El \textbf{timetabling} puede definirse generalmente como la actividad de asignar, con sujeción a restricciones, una serie de eventos a un número limitado de periodos de tiempo y lugares, de forma que se satisfagan los objetivos deseables en la medida de lo posible. Los casos prácticos en los que se plantea esta actividad son muy variados. En el ámbito educacional, empresarial, deportivo, de comunicación y transporte, entre otros \cite{hybrid-timetabling}.\newline
@@ -15,7 +93,7 @@ Las restricciones duras deben ser satisfechas por el calendario. Por ejemplo, un
 
 Los requisitos blandos, por otra parte, son una lista de deseos con propiedades que se querría que los calendarios posean. Por ejemplo, no se acumularán en un mismo día varios exámenes de elevada dificultad y duración.\newline
 
-El enfoque adoptado por los primeros intentos de resolver el ETP generalmente consistía en clasificar los exámenes según la dificultad asociada a la programación de los mismos y ordenando a estos como los primeros para evitar que se produjesen solapamientos. Desde entonces, múltiples avances se han producido en la resolución de este problema, incluyendo la aplicación de heurísticas y metaheurísticas, técnicas de construcción secuencial, algoritmos genéticos, etc.\newpage
+El enfoque adoptado por los primeros intentos de resolver el ETP generalmente consistía en clasificar los exámenes según la dificultad asociada a la programación de los mismos y ordenando a estos como los primeros para evitar que se produjesen solapamientos. Desde entonces, múltiples avances se han producido en la resolución de este problema, incluyendo la aplicación de heurísticas y metaheurísticas, técnicas de construcción secuencial, algoritmos genéticos, etc.
 
 A continuación se muestra un ejemplo de un algoritmo genético\footnote{Algoritmo Genético Interactivo (por sus siglas en inglés, Interactive Genetic Algorithm). Los IGAs son una variación de los algoritmos genéticos tradicionales que involucran la interacción humana en el proceso de optimización.} para resolver el ETP \cite{PILLAY2010457}:
 
@@ -60,7 +138,6 @@ A continuación se muestra un ejemplo de un algoritmo para resolver el UCTTP med
     \caption{Pseudocódigo para algoritmo de UCTTP \cite{Rudova2011}.}
 \end{figure}
 
-\newpage
 
 \subsection{Class/Teacher Timetabling Problem}
 
@@ -159,41 +236,16 @@ Es una función integrada en aplicaciones como Outlook y Microsoft 365\footnote{
     \includegraphics[width=1\textwidth]{./imagenes/Microsoft_calendar.png}
     \caption{Ejemplo de uso con Microsoft Calendar.}
 \end{figure}
-\
 
-
-\subsection{Chatbots}
-En un primer momento, era la opción escogida para llevar a cabo este proyecto. Sin embargo, tras varias pruebas con diversos chatbots y modelos como \emph{ChatGPT y Gemini}, se acabó descartando la idea dada la inconsistencia de los asistentes para organizar las clases de forma que no se solaparan y sin alterar los datos de los horarios proporcionados.
-
-\subsubsection*{ChatGPT}
-Es un modelo de lenguaje de inteligencia artificial desarrollado por OpenAI\footnote{\url{https://chatgpt.com/}}. Es capaz de mantener conversaciones con los usuarios y responder preguntas en lenguaje natural. ChatGPT se basa en la arquitectura de transformadores y emplea el aprendizaje profundo para generar respuestas coherentes y relevantes. ChatGPT se puede utilizar en una variedad de aplicaciones, como asistentes virtuales, chatbots y sistemas de diálogo. ChatGPT es capaz de responder preguntas sobre una amplia gama de temas y proporcionar información útil a los usuarios. ChatGPT es una herramienta poderosa para la generación de lenguaje natural y la interacción con los usuarios en línea.
-
-
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=1\textwidth]{./imagenes/ChatGPT.png}
-        \caption{Ejemplo con ChatGPT 3.5: solapa las clases.}
-    \end{figure}
-
-
-\subsubsection*{Gemini}
-Es una familia de modelos de inteligencia artificial desarrollada por Google DeepMind\footnote{\url{https://gemini.google.com/app}}. Es la evolución de la tecnología detrás de Bard, integrando capacidades avanzadas de procesamiento de lenguaje natural con otros aspectos de la inteligencia artificial, como el razonamiento y la memoria. Gemini está diseñado para realizar tareas complejas que van más allá de la generación de texto, buscando mejorar la comprensión contextual, la generación de respuestas más precisas y la interacción más fluida con los usuarios. Es parte del esfuerzo de Google por mantenerse a la vanguardia en el desarrollo de IA generativa y cognitiva.
-
-
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=1\textwidth]{./imagenes/Gemini.png}
-        \caption{Ejemplo con Gemini (Bard): omite asignaturas.}
-    \end{figure}
 
 
 \subsection{Proyectos académicos}
 
-Además de las soluciones comerciales mencionadas, existen otros proyectos académicos que siguen el mismo enfoque:
+Además de las soluciones comerciales mencionadas, se encontró otro proyecto académico que aborda un enfoque similar al problema propuesto.
 
-\begin{enumerate}
+\begin{itemize}
     \item \textbf{Diego Barreiro Pérez}, \textit{Diseño e implementación de una aplicación web interactiva capaz de atender a preferencias y restricciones para la posterior generación automática de los horarios mediante heurísticas \cite{Barreiro}.}
-\end{enumerate}
+\end{itemize}
 
 % A continuación se muestran imágenes de los asistentes mencionados:\newpage
 % \begin{figure}[ht!]
@@ -225,3 +277,5 @@ Sin embargo, todas estas soluciones tienen una serie de limitaciones que las hac
     \item \textbf{Falta de automatización:} Los usuarios deben participar activamente en la organización de bloques para poder conformar el horario que se adecue a sus necesidades. Este proceso resulta ineficiente y tedioso.
     \item \textbf{Extracción de datos:} La información de los horarios de las asignaturas debe ser consultada e introducida manualmente por el usuario, lo que puede resultar en errores y omisiones.
 \end{enumerate}
+
+Respecto a los proyectos académicos, el propuesto por \textbf{Diego Barreiro Pérez}, pese a no contar con las limitaciones mencionadas anteriormente, resuelve un problema distinto al propuesto en este trabajo. Se trata de un algoritmo de timetabling del tipo UCTTP, por tanto se centra en la distribución de las clases en las franjas horarias y salas disponibles. En nuestro caso, dichos eventos ya están asignados y lo que se busca, es obtener la mejor combinación de los mismos para cumplir con las demandas del usuario concreto.\newline

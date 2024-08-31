@@ -49,3 +49,5 @@ Webframeworks
 Postman
 mockups
 frameworks
+prompt
+prompts
