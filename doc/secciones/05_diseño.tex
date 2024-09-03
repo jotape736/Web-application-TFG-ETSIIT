@@ -101,11 +101,34 @@ Bajo el marco de una arquitectura cliente-servidor, las llamadas a los servicios
 
 \subsection{Arquitectura cliente-servidor}
 
+La arquitectura cliente-servidor es un modelo de diseño de software en el que las tareas se reparten entre los proveedores de recursos o servicios, llamados \textbf{servidores}, y los demandantes, llamados \textbf{clientes}. Un cliente realiza una petición a un servidor, el cual procesa la solicitud y devuelve una respuesta. La comunicación entre ambos se realiza a través de una red, generalmente utilizando el protocolo TCP/IP. Actualmente, se emplea el término backend para referirse a los servidores y frontend para los clientes.\newline
+
+\subsubsection*{Cliente}
+
+El cliente es la parte del sistema que interactúa con el usuario final. Se encarga de enviar solicitudes al servidor y de procesar la respuesta para mostrarla al usuario. Puede ser una aplicación de escritorio, una aplicación web o una aplicación móvil. En el caso de la plataforma \textbf{GAC}, el cliente es una aplicación web que se ejecuta en un navegador.\newline
+
+\subsubsection*{Servidor}
+
+El servidor es la parte del sistema que recibe las solicitudes del cliente, las procesa y devuelve una respuesta. Puede ser un servidor web, un servidor de bases de datos o un servidor de aplicaciones. En el caso de la plataforma \textbf{GAC}, el servidor es un contenedor de Docker que se encarga de gestionar las solicitudes de los clientes y de comunicarse con la base de datos.\newline
+
+\subsubsection*{Ventajas e inconvenientes}
+
+Las ventajas de la arquitectura cliente-servidor son varias, garante de ello es su amplia adopción en la industria del software. Entre las más destacadas se encuentran:
+
+\begin{itemize}
+    \item [$\circ$] Facilidad en la administración y control de los datos al encontrarse los recursos en entornos de servidor controlados
+    \item [$\circ$] Escalabilidad, ya que se pueden ampliar ambos entornos, centrando las necesidades de escalabilidad en el servidor.
+    \item [$\circ$] Permite el mantenimiento individual de las capas software, lo que permite aislar problemas y facilitar la corrección de errores.
+    \item [$\circ$] Desarrollo menos dependiente, ya que se pueden desarrollar las capas de forma separada.
+\end{itemize}
+
+Sin embargo, también presenta inconvenientes, como la necesidad de una infraestructura de red para la comunicación entre cliente y servidor, la dependencia de la disponibilidad del servidor y la necesidad de una mayor seguridad en la comunicación entre ambos.\newline
+
 \section{Diseño Lógico}
 
 Los diagramas de clase UML (Unified Modeling Language) son el núcleo del diseño y analisis orientado a objetos y son una forma de modelar la estructura estática de un sistema, por medio de clases, atributos, métodos y relaciones entre ellas \cite{herchi2012user}.\newline
 
-SQLite ha sido la opción escogida para la base de datos de la plataforma \textbf{GAC}, por los motivos mencionados anteriormente. Todas las clases del diagrama que se muestra a continuación, se traducirán a tablas donde sus campos serán los atributos que se detallan en la figura. A continuación se muestra el diagrama de clases de la plataforma.\newline
+SQLite ha sido la opción escogida para la base de datos de la plataforma \textbf{GAC}, por los motivos mencionados anteriormente. Todas las clases del diagrama que se muestra a continuación, se traducirán a tablas donde sus campos serán los atributos que se detallan en la figura. A continuación se muestra el diagrama de clases y secuencia de la plataforma.\newline
 
 \begin{figure}[H]
     \centering
@@ -118,8 +141,6 @@ SQLite ha sido la opción escogida para la base de datos de la plataforma \textb
     \includegraphics[width=1\textwidth]{./imagenes/Secuencia_Diagrama.png}
     \caption{Diagrama de secuencia de la plataforma.}
 \end{figure}
-
-
 
 \section{Diseño de Wireframes para Frontend}
 

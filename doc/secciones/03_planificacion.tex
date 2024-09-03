@@ -1,8 +1,62 @@
 \chapter{Planificación}
 
+\newpage
+
 \section{Metodología utilizada}
 
 
 \section{Temporización}
 
 \section{Recursos y costes}
+
+En este apartado se discuten los recursos y materiales empleados en el desarrollo del proyecto, así como los costes asociados a los mismos.
+
+\subsection{Recursos humanos}
+
+Para el desarrollo de la plataforma \textbf{GAC}, se ha contado con un único desarrollador, el autor de este documento. Además, cabe destacar la labor de mis tutores, quienes han supervisado y guiado el desarrollo del mismo.
+
+\subsection{Materiales}
+
+Para el desarrollo de la plataforma se ha utilizado un portátil personal y un segundo monitor, el cual ha sido de gran utilidad para la realización de tareas de desarrollo y diseño, al permitir visualizar de forma simultánea varias ventanas y herramientas. Ambos dispositivos son propiedad del autor.
+
+% Please add the following required packages to your document preamble:
+% \usepackage{multirow}
+\begin{table}[H]
+    \begin{tabular}{|c|c|c|ll}
+    \cline{1-3}
+    \multicolumn{1}{|l|}{Concepto}                                                                              & \multicolumn{1}{l|}{Coste Unitario (€)} & \multicolumn{1}{l|}{Coste Materiales (€)} &  &  \\ \cline{1-3}
+    \begin{tabular}[c]{@{}c@{}}Acer Aspire 3 A315-59-504M -\\  Intel® Core™ i5-1235U -\\  16GB RAM\end{tabular} & 749 €                                   & \multirow{2}{*}{846,90€}                  &  &  \\ \cline{1-2}
+    \begin{tabular}[c]{@{}c@{}}Monitor -\\ Asus VZ239HE 23" Full HD IPS\end{tabular}                            & 97,90€                                  &                                           &  &  \\ \cline{1-3}
+    \end{tabular}
+    \caption{Coste de Materiales}
+\end{table}
+
+\section{Presupuesto}
+
+En esta sección se examinan y detallan los costos del proyecto empleando datos obtenidos de las bases de cotización para contingencias comunes correspondientes al año 2024, según la Seguridad Social de España \cite{seg-social}. Se considerará el perfil de un ingeniero informático junior, tomando en cuenta que las bases de cotización varían entre un mínimo de 1.847,40 € y un máximo de 4.720,50 €. Para el cálculo, se utilizará la base mínima de cotización y se asumirá que la duración del proyecto será de 6 meses.\newline
+
+Partiendo de esta información, se puede calcular el coste total del salario del desarrollador, el cual se detalla a continuación:
+
+\begin{equation}
+    \textbf{Salario Ingeniero Junior} = \text{1.847,40 €/mes} \times 6 \text{ meses} = \text{11.084,40 €}
+\end{equation}
+
+En cuanto a las licencias necesarias para este proyecto, se han utilizado exclusivamente tecnologías de código abierto con el propósito de reducir costos. Como resultado de esta decisión, no ha habido ningún gasto en licencias. Para calcular el coste del hardware mencionado en la sección de materiales, es esencial tener en cuenta la vida útil estimada de los dispositivos, como un portátil, que se estima en 5 años \footnote{\url{https://www.minitool.com/es/respaldar-datos/cuanto-dura-un-ordenador-portatil.html}}.
+
+\begin{equation}
+    \textbf{Coste Anual} = \frac {\text{Coste Materiales}}{\text{5 años}} = \text{169,38 €/año}
+\end{equation}
+
+\begin{equation}
+    \textbf{Materiales x 6 Meses} = \left(\frac {\text{Coste Materiales}}{\text{5 años}}\right) \times 6 \text{ Meses} = \text{1.016,28 €}
+\end{equation}
+
+Sumando los costes de salario y materiales, se obtiene el coste total del proyecto:
+
+\begin{table}[H]
+    \begin{tabular}{|c|c|c|l|l}
+    \cline{1-4}
+    Concepto         & Mensual    & 6 Meses     & \multicolumn{1}{c|}{Materiales + Desarrollo} &  \\ \cline{1-4}
+    Ingeniero Junior & 1.847,90 € & 11.084,40 € &                                              &  \\ \cline{1-4}
+    \end{tabular}
+\end{table}

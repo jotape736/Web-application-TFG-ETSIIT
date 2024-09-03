@@ -1,2 +1,34 @@
 \chapter{Conclusiones y trabajos futuros}
 
+\section{Conclusión}
+
+A lo largo de este proyecto se ha ahondado en la problemática que enfrentan los alumnos universitarios al momento de hacer su matrícula, especialmente aquellos que arrastran asignaturas de cursos anteriores. La solución propuesta ha demostrado ser una herramienta eficaz, integrando diversas funcionalidades que hacen más sencillo y eficiente el proceso de matriculación. Esta plataforma centraliza y mantiene actualizada toda la información relevante sobre la planificación docente y además, permite a los alumnos planificar su selección de matrícula en un tiempo menor que el que les tomaría hacerlo de forma manual y sin errores.\newline
+
+El desarrollo de \textbf{GAC} ha tenido un impacto significativo en la solución de la fragmentación de la información y la dificultad en la gestión de la selección de asignaturas y grupos. El hecho de proporcionar una lista centralizada con toda la información necesaria para la matrícula, ha permitido a los alumnos tomar decisiones más informadas y rápidas.\newline
+
+El Trabajo de Fin de Grado que aquí se presenta se ha completado con éxito con el desarrollo de una plataforma web para la gestión de la matrícula de los alumnos de la Universidad de Granada. Esta herramienta ha cumplido con los objetivos propuestos al inicio del proyecto, integrando además diversas funcionalidades que mejoran la experiencia del usuario.\newline
+
+Este proceso ha sido enriquecedor tanto en el ámbito personal como en el profesional. El diseño y desarrollo de la plataforma desde sus etapas iniciales me ha permitido aplicar los conocimientos adquiridos a lo largo del grado. A través de la implementación de diversas tecnologías y metodologías, he afianzado mi comprensión en áreas previamente conocidas y he explorado otras nuevas.\newline
+
+La elección de las tecnologías mencionadas en capítulos anteriores ha ampliado considerablemente mi entendimiento sobre el desarrollo de aplicaciones, permitiéndome alcanzar un nivel de profundidad y práctica mejor que aquel con el que partí al iniciar el proyecto. Además, la aplicación de metodologías de desarrollo ha mejorado mis habilidades en la planificación y gestión de proyectos, enseñándome la importancia de adaptarse a los cambios durante el ciclo de desarrollo.\newline
+
+En conclusión, este proyecto ha cumplido con éxito su objetivo de facilitar la tarea de generar un calendario semanal a los estudiantes para el posterior proceso de matriculación. Además, ha fortalecido mi capacidad para identificar problemas y diseñar soluciones efectivas. Ha supuesto un reto personal y profesional que me ha permitido crecer y aprender, y que me ha proporcionado una base sólida para futuros proyectos.\newline
+
+Este proyecto es de código abierto y su código fuente está disponible en el siguiente repositorio de GitHub: \url{PONER URL AL TERMINAR}.
+
+\section{Trabajo Futuro}
+
+A pesar de haber cumplido con los objetivos propuestos, existen diversas líneas de trabajo que podrían ser llevadas a cabo para la mejora del proyecto. A continuación, se detallan algunas de las mejoras que podrían ser añadidas:
+
+\begin{enumerate}
+    \item \textbf{Despliegue de la plataforma:} Actualmente, el frontend de la aplicación está alojado en un servidor de desarrollo local mediante Vite y el backend en contendores de Docker. Sin embargo, para que la aplicación sea accesible desde cualquier lugar, es necesario el despliegue en un servidor público o en una plataforma en la nube. Este paso es crucial para garantizar la disponibilidad y escalabilidad de la aplicación, permitiendo a los usuarios interactuar con ella en tiempo real desde cualquier dispositivo con acceso a internet.
+    
+    \item \textbf{Migración del algoritmo de generación de horarios:} El algoritmo de generación de horarios, que actualmente está integrado en el backend junto con otras funcionalidades, podría beneficiarse de una migración a su propio contenedor. Al separar este componente, se facilitaría su implementación en diferentes sistemas y entornos en el futuro, lo que también podría mejorar la modularidad y el mantenimiento del sistema. Esta separación permitiría, además, escalar y optimizar el algoritmo de manera independiente, adaptándolo a diferentes necesidades y cargas de trabajo.
+
+    \item \textbf{Implementación de registro de usuarios:} Incorporar un sistema de registro de usuarios sería un avance significativo, permitiendo a los alumnos crear cuentas personales para guardar y gestionar sus horarios de manera personalizada. Esta funcionalidad no solo mejoraría la experiencia del usuario al ofrecer una mayor personalización, sino que también abriría la puerta a futuras características, como la sincronización entre dispositivos, la recuperación de datos y el envío de notificaciones personalizadas.
+    
+    \item \textbf{Desarrollo de una aplicación móvil:} Crear una aplicación móvil utilizando React Native sería un paso estratégico para ampliar el acceso a la plataforma. Dado que el frontend ya está desarrollado en React, React Native permitiría reutilizar una gran parte del código existente, lo que aceleraría el desarrollo de la aplicación móvil. Esta aplicación facilitaría a los alumnos acceder a sus horarios y otras funcionalidades desde cualquier lugar, aprovechando las características nativas de los dispositivos móviles, como las notificaciones push, el acceso offline y una experiencia de usuario optimizada.
+    
+    \item \textbf{Incorporación del resto de Grados de la UGR:} Hasta el momento, la plataforma solo incluye la planificación docente del Grado en Ingeniería Informática. Sin embargo, ampliar la cobertura para incluir el resto de grados de la Universidad de Granada sería un paso importante para hacer la herramienta útil a una audiencia más amplia. Esto no solo incrementaría la relevancia y el valor de la plataforma para un mayor número de estudiantes, sino que también podría atraer la atención de otros departamentos y facultades interesados en integrar sus propios planes de estudio en la herramienta.
+    
+\end{enumerate}
