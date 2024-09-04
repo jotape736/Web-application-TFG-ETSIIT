@@ -6,8 +6,6 @@ En este capítulo se detalla la implementación de la plataforma \textbf{GAC}. S
 
 Previo a la implementación, se realizó la configuración del entorno de desarrollo. Esto incluye la instalación de todas las herramientas necesarias para el desarrollo del proyecto, como editores de código, bases de datos, etc. A continuación, se detallan las herramientas utilizadas y las razones de su elección.
 
-\newpage
-
 \renewcommand{\icon}[1]{\includegraphics[height=18pt]{#1}}
 
 \subsubsection*{Visual Studio Code \protect\icon{./imagenes/vscode_logo.png}}
@@ -24,7 +22,6 @@ Visual Studio Code\footnote{\url{https://code.visualstudio.com/}}(Figura \ref{fi
 
 La razón principal de la elección de Visual Studio Code es la familiaridad. He utilizado este editor desde que empecé mis estudios de grado y la personalización, extensiones, integración con Git y la facilidad de uso la hacen una herramienta tremendamente útil y versátil. Además, pueden integrarse terminales para ejecutar comandos y es multiplataforma, lo que permite trabajar en cualquier sistema operativo.\newline
 
-\newpage
 \renewcommand{\icon}[1]{\includegraphics[height=18pt]{#1}}
 \subsubsection*{SQLite Studio \protect\icon{./imagenes/sqlite_logo.png}}
 
@@ -40,6 +37,8 @@ La elección de SQLite Studio se debe a que es un administrador de bases de dato
     \label{fig:sqlitestudio}
 \end{figure}
 
+\vspace{-1cm}
+
 \renewcommand{\icon}[1]{\includegraphics[height=18pt]{#1}}
 \subsubsection*{Postman \protect\icon{./imagenes/postman_logo.png}}
 
@@ -54,9 +53,11 @@ Postman\footnote{\url{https://www.postman.com/}}(Figura \ref{fig:postman}) es un
 
 La elección de Postman se debe a una recomendación de mi tutor. Es una herramienta muy útil para probar API y asegurarse de que funcionan correctamente. Gracias a ella he podido probar los datos cruzados entre el backend y el frontend y depurar de manera más cómoda. Además, permite automatizar las pruebas y documentarlas.\newline
 
-\section{Backend}
 
-En este apartado se describe la implementación del servicio Backend de la plataforma. Se especificará la estructura del código así como la implementación de la API mencionada en la sección de diseño.\newline
+\section{Backend}
+El backend es el encargado de administrar la funcionalidad general de la plataforma, operando en el servidor para procesar las solicitudes, manipular los datos y devolver la respuesta al cliente. En esta capa se almacena el código encargado de la lógica de negocio y la interacción con la base de datos. Su funcionalidad juega un papel esencial en la comunicación con el frontend y se asegura de que la información devuelta sea correcta, asegurando la integridad de los datos, el dinamismo y el diseño responsive de la interfaz de usuario. Actuando como núcleo funcional de la plataforma, se compone de las tecnologías que se detallan a continuación.\newline
+
+En este apartado se describe la implementación del servicio Backend de la plataforma. Se especificará la estructura del código así como la implementación de la API mencionada en la sección de diseño y las tecnologías empleadas durante su desarrollo.\newline
 
 \subsection{Servicios Web}
 
@@ -254,14 +255,14 @@ El \textbf{día} de la semana se indica mediante las \textbf{centenas}, la \text
     \end{algorithmic}
 \end{algorithm}
 
+\newpage
 
-\subsection{Desarrollo Backend}
+\subsection{Tecnologías utilizadas}
 
-Para el desarrollo de la plataforma se compone de un backend y un frontend. El backend hace de servidor y es el que se encarga de responder a las peticiones por medio de una API desarrollada en Python con Flask y SQLite como base de datos. El frontend incluye la interfaz de usuario y ha sido desarrollada en ReactJS. A continuación se detallan las tecnologías utilizadas en detalle.\newline
+A continuación se detallan las tecnologías y librerías utilizadas en el desarrollo del backend.
+% Para el desarrollo de la plataforma se compone de un backend y un frontend. El backend hace de servidor y es el que se encarga de responder a las peticiones por medio de una API desarrollada en Python con Flask y SQLite como base de datos. El frontend incluye la interfaz de usuario y ha sido desarrollada en ReactJS. A continuación se detallan las tecnologías utilizadas en detalle.\newline
 
-Para el desarrollo del backend se ha utilizado una arquitecura cliente-servidor basada en una arquitectura orientada a servicios (SOA).\newline
-
-El backend es el encargado de administrar la funcionalidad general de la plataforma, operando en el servidor para procesar las solicitudes, manipular los datos y devolver la respuesta al cliente. En esta capa se almacena el código encargado de la lógica de negocio y la interacción con la base de datos. Su funcionalidad juega un papel esencial en la comunicación con el frontend y se asegura de que la información devuelta sea correcta, asegurando la integridad de los datos, el dinamismo y el diseño responsive de la interfaz de usuario. Actuando como núcleo funcional de la plataforma, se compone de las tecnologías que se detallan a continuación.
+% Para el desarrollo del backend se ha utilizado una arquitecura cliente-servidor basada en una arquitectura orientada a servicios (SOA).\newline
 
 \renewcommand{\icon}[1]{\includegraphics[height=22pt]{#1}}
 \subsubsection*{Pyhton \protect\icon{./imagenes/python_logo.png}}
@@ -290,9 +291,71 @@ Docker \footnote{\url{https://www.docker.com/}} es una tecnología de organizaci
 
 El motivo de usar Docker es mi familiaridad con la herramienta y mi interés en aprender más sobre ella. Docker es una tecnología muy popular y ampliamente utilizada en la industria. Permite empaquetar aplicaciones en contenedores virtuales que pueden ejecutarse en las mismas condiciones independientemente del sistema operativo subyacente, lo que facilita la configuración y el despliegue de la plataforma. Además, es muy eficiente y ligero, permitiendo ejecutar múltiples contenedores en un mismo servidor.
 
-\subsection{Desarrollo Frontend}
 
-El frontend es la parte de la plataforma con la que interactúan los usuarios finales. Es la capa de presentación e incluye todo aquello que el se ve. Juega un papel fundamental en la experiencia ya que es la primera impresión que se lleva el usuario y debe ser clara e intuitiva.\newline
+\subsubsection*{Módulos utilizados}
+\begin{itemize}
+    \item \textbf{itertools:} Módulo con herramientas útiles para la creación de iteradores eficientes. Sus funciones para la creación de productos cartesianos y permutaciones han sido fundamentales para la creación de los horarios (Figura \ref{fig:get_horarios}).
+    \item \textbf{sqlite3:} Módulo que permite la interacción con bases de datos SQLite. Se ha utilizado para realizar consultas SQL a la base de datos (Figuras \ref{fig:get_horarios}, \ref{fig:get_asignaturas_curso}, \ref{fig:get_grupos_teoria}, \ref{fig:get_subgrupos} y \ref{fig:get_fecha_grupo_subgrupo}).
+    \item \textbf{json:} Módulo que permite la codificación y decodificación de objetos JSON. Se ha utilizado para devolver las respuestas en formato JSON (Figuras \ref{fig:get_horarios_respuesta}, \ref{fig:get_asignaturas_respuesta}, \ref{fig:get_grupos_teoria_respuesta} y \ref{fig:get_subgrupos_respuesta}).
+\end{itemize}
+
+\section{Frontend}
+
+El frontend es la parte con la que el usuario final podrá interactuar. Hace de interfaz para las peticiones a la API, que son resueltas por el backend, donde se encuentra toda la lógica de la plataforma.\newline
+
+La implementación del mismo se ha llevado a cabo utilizando la librería de React, que permite la creación de interfaces de usuario de forma sencilla y eficiente. La estructura se divide en componentes, que son elementos independientes que se encargan de mostrar la información y gestionar las interacciones con el usuario. Dichos componentes son la base de React y permiten la creación de aplicaciones escalables y fáciles de mantener.\newline
+
+Todo este proceso se explica en detalle a continuación:\newline
+
+\subsection{Componentes de React}
+
+Son piezas de código reutilizable que renderizan una parte de la interfaz, pueden ser parametrizados, por medio de entradas llamadas ``props'' y pueden contener su propio estado. El estado es un objeto que contiene datos que pueden cambiar y se usan para controlar los cambios en la interfaz. Los componentes permiten componer interfaces más complejas a partir de elementos más sencillos, lo que facilita la escalabilidad y el mantenimiento.\newline
+
+
+Para el desarrollo de la plataforma \textbf{GAC} se han desarrollado los siguientes componentes:
+
+\begin{enumerate}
+    \item \textbf{YearPanel:} Panel que muestra los cursos y cuatrimestres del grado seleccionado (Figura \ref{fig:yearpanel}).
+    \begin{enumerate}
+        \item \textbf{SelectorQuarter:} Selector que permite elegir el cuatrimestre.
+        \item \textbf{SelectorYear:} Selector que permite elegir el curso.
+    \end{enumerate}
+    \item \textbf{SubjectPanel:} Panel que muestra las asignaturas del curso seleccionado (Figura \ref{fig:subjectPanel}). Interactúa con el componente \textbf{YearPanel} para obtener los datos y mostrarlos.
+    \item \textbf{GroupPanel:} Panel que muestra los grupos de las asignaturas seleccionadas (Figura \ref{fig:groupPanel}). Interactúa con el componente \textbf{SubjectPanel} para obtener los datos y mostrarlos.
+    \item \textbf{Calendar:} Cuadro que muestra los horarios de las asignaturas y grupos seleccionados (Figura \ref{fig:calendar}). Interactúa con el componente \textbf{GroupPanel} para obtener los datos y mostrarlos.
+\end{enumerate}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{./imagenes/year_panel.png}
+    \caption{YearPanel.}
+    \label{fig:yearpanel}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{./imagenes/subjects_panel.png}
+    \caption{SubjectPanel.}
+    \label{fig:subjectPanel}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{./imagenes/group_panel.png}
+    \caption{GroupPanel.}
+    \label{fig:groupPanel}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{./imagenes/calendar.png}
+    \caption{Calendar.}
+    \label{fig:calendar}
+\end{figure}
+
+\subsection{Herramientas utilizadas}
+
+% El frontend es la parte de la plataforma con la que interactúan los usuarios finales. Es la capa de presentación e incluye todo aquello que el se ve. Juega un papel fundamental en la experiencia ya que es la primera impresión que se lleva el usuario y debe ser clara e intuitiva.\newline
 
 \renewcommand{\icon}[1]{\includegraphics[height=22pt]{#1}}
 \subsubsection*{React JS \protect\icon{./imagenes/react_logo.png}}
@@ -309,32 +372,26 @@ Para ilustrar su popularidad, a continuación se muestra un gráfico con las ten
     \caption{Comparativa de descargas de frameworks de acuerdo a NPM.}
 \end{figure}
 
+\newpage
 
+\subsection{Navegación}
 
+Para la navegación por la plataforma existen dos tipos de usuarios, el usuario genérico (Figura \ref{fig:navegacion_sin_registro}) y el usuario registrado (Figura \ref{fig:navegacion_registro}). El usuario genérico puede acceder a la plataforma y visualizar los horarios de las asignaturas, mientras que el usuario registrado puede guardar los horarios y visualizarlos en cualquier momento.\newline
 
-\section{Frontend}
+\subsubsection*{Navegación de usuario genérico}
 
-El frontend es la parte con la que el usuario final podrá interactuar. Hace de interfaz para las peticiones a la API resueltas por el backend, que es donde se encuentra toda la lógica.\newline
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{./imagenes/Navegacion_sin_registro_Diagram.png}
+    \caption{Navegación de usuario genérico.}
+    \label{fig:navegacion_sin_registro}
+\end{figure}
 
-La implementación del mismo se ha llevado a cabo utilizando la librería de React, que permite la creación de interfaces de usuario de forma sencilla y eficiente. La estructura se divide en componentes, que son elementos independientes que se encargan de mostrar la información y gestionar las interacciones con el usuario. Dichos componentes son la base de React y permiten la creación de aplicaciones escalables y fáciles de mantener.\newline
+\subsubsection*{Navegación de usuario registrado}
 
-Todo este proceso se explica en detalle a continuación:\newline
-
-\subsection{Componentes de React}
-
-Son piezas de código reutilizable que renderizan una parte de la interfaz, pueden ser parametrizados, por medio de entradas llamadas ``props'' y pueden contener su propio estado. El estado es un objeto que contiene datos que pueden cambiar y se usan para controlar los cambios en la interfaz. Los componentes permiten componer interfaces más complejas a partir de elementos más sencillos, lo que facilita la escalabilidad y el mantenimiento.\newline
-
-
-Para el desarrollo de la plataforma \textbf{GAC} se han desarrollado los siguientes componentes:
-
-\begin{enumerate}
-    \item \textbf{YearPanel}: Panel que muestra los cursos y cuatrimestres del grado seleccionado.
-    \begin{enumerate}
-        \item \textbf{SelectorQuarter}: Selector que permite elegir el cuatrimestre.
-        \item \textbf{SelectorYear}: Selector que permite elegir el curso.
-    \end{enumerate}
-    \item \textbf{SubjectPanel}: Panel que muestra las asignaturas del curso seleccionado.
-    \item \textbf{GroupPanel}: Panel que muestra los grupos de las asignaturas seleccionadas.
-    \item \textbf{Calendar}: Cuadro que muestra los horarios de las asignaturas y grupos seleccionados.
-\end{enumerate}
-
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{./imagenes/Navegacion_Diagram.png}
+    \caption{Navegación de usuario registrado.}
+    \label{fig:navegacion_registro}
+\end{figure}
