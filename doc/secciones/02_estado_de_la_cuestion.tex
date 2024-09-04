@@ -1,21 +1,20 @@
 \chapter{Estado de la cuestión}
 
-Esta sección tiene como objetivo analizar los algoritmos de timetabling existentes y sus aplicaciones en el ámbito universitario. Se discutirán las ventajas y limitaciones de las soluciones actuales y otros trabajos relacionados.\newpage
-
-
+Esta sección tiene como objetivo discutir la efectividad de la IA generativa como motor de calendarios para \textbf{GAC} y analizar los algoritmos de timetabling existentes y sus aplicaciones en el ámbito universitario. Se discutirán las ventajas y limitaciones de las soluciones actuales y otros trabajos relacionados.
 
 \section{IA generativa}
 
-La \textit{IA generativa}\footnote{\url{https://cloud.google.com/use-cases/generative-ai?hl=es}} hace referencia al uso de modelos de inteligencia artificial para la creación de contenido, como texto, imágenes, audio, etc. Se basan en \textit{modelos fundacionales} \footnote{\url{https://aws.amazon.com/es/what-is/foundation-models/}} que son redes neuronales de aprendizaje profundo y que sirven como punto de partida para el desarrollo de modelos de \textit{machine learning}. La IA generativa usa un modelo de aprendizaje automático para aprender patrones y relaciones dentro de un conjunto de datos creados por humanos. A partir de dichos patrones aprendidos, genera contenido.
+La \textit{IA generativa}\footnote{\url{https://cloud.google.com/use-cases/generative-ai?hl=es}} hace referencia al uso de modelos de inteligencia artificial para la creación de contenido, como texto, imágenes, audio, etc. Se basan en \textit{modelos fundacionales} \footnote{\url{https://aws.amazon.com/es/what-is/foundation-models/}} que son redes neuronales de aprendizaje profundo y que sirven como punto de partida para el desarrollo de modelos de \textit{machine learning}. La IA generativa usa un modelo de aprendizaje automático para aprender patrones y relaciones dentro de un conjunto de datos creados por humanos. A partir de dichos patrones aprendidos, genera contenido. Los modelos de IA generativa se utilizan en una amplia variedad de aplicaciones, como la creación de arte, la generación de texto, la creación de música y la producción de contenido multimedia. Estos modelos son capaces de generar contenido de alta calidad y realista, lo que los hace útiles en una amplia gama de aplicaciones. Como puede verse en la Figura \ref{fig:llm_vs_generative}, aunque los LLM (Modelos de Lenguaje a Gran Escala) son un tipo específico de IA generativa enfocado exclusivamente en la generación y comprensión de texto, los modelos generativos no se limitan a esta capacidad. Estos modelos tienen la versatilidad de generar contenido en una amplia gama de formatos, incluyendo imágenes, audio, video, y otros tipos de datos.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{./imagenes/large-language-models-vs-generative-ai-1.jpg}
     \caption{Diferencia entre LLM e IA Generativa \cite{chisw}.}
+    \label{fig:llm_vs_generative}
 \end{figure}
 
 
-En un primer momento, era la opción escogida para llevar a cabo el backend de la plataforma \textbf{GAC}. Sin embargo, tras varias pruebas con diversos modelos como \emph{ChatGPT y Gemini}, se acabó descartando la idea dada la inconsistencia de los asistentes para organizar las clases de forma que no se solaparan y sin alterar los datos de los horarios proporcionados.\newpage
+En un primer momento, era la opción escogida para llevar a cabo el backend de la plataforma \textbf{GAC}. Sin embargo, tras varias pruebas con diversos modelos como \emph{ChatGPT y Gemini}, se acabó descartando la idea dada la inconsistencia de los asistentes para organizar las clases de forma que no se solaparan y sin alterar los datos de los horarios proporcionados.
 
 \subsection{Modelos utilizados}
 
@@ -33,25 +32,27 @@ Es una familia de modelos de inteligencia artificial desarrollada por Google Dee
 
 \subsection{Prompt Engineering}
 
-Se refiere al diseño sistemático y la optimización de las instrucciones de entrada para guiar las respuestas de los LLM, garantizando la precisión, relevancia y coherencia de los resultados generados. Este proceso es crucial para aprovechar todo el potencial de estos modelos, haciéndolos más accesibles y aplicables en diversos ámbitos \cite{chen2023unleashing}.
+Se refiere al diseño sistemático y la optimización de las instrucciones de entrada para guiar las respuestas de los LLM, garantizando la precisión, relevancia y coherencia de los resultados generados. Este proceso es crucial para aprovechar todo el potencial de estos modelos, haciéndolos más accesibles y aplicables en diversos ámbitos \cite{chen2023unleashing}.\newline
 
-Se empleó el método del \textbf{Role-prompting} con los modelos. Dicha técnica consiste en proporcionar al modelo un rol específico. Este método es efectivo para guiar las respuestas del modelo hacia un objetivo concreto \cite{Zhang_2023}.\newline
+Como puede verse la Figura \ref{fig:role_prompt}, se empleó el método del \textbf{Role-prompting} con los modelos. Dicha técnica consiste en proporcionar al modelo un rol específico. Este método es efectivo para guiar las respuestas del modelo hacia un objetivo concreto \cite{Zhang_2023}.\newline
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\textwidth]{./imagenes/Role_prompt.png}
+    \includegraphics[width=1\textwidth]{./imagenes/Role_prompt.png}
     \caption{Ejemplo de Role-prompting con ChatGPT.}
+    \label{fig:role_prompt}
 \end{figure}
 
 Además del método anterior, se siguieron los siguientes básicos del prompt Engineering \cite{Zhang_2023} para mejorar la calidad de las respuestas generadas por los modelos:
 
 \subsubsection*{Dar instrucciones}
-Se ha observado que las respuestas generadas por los modelos tienden a ser excesivamente generales cuando se le proporcionan instrucciones desprovistas de cualquier descripción suplementaria. Es imprescindible una descripción exhaustiva para resultados más precisos.
+Se ha observado que las respuestas generadas por los modelos tienden a ser excesivamente generales cuando se le proporcionan instrucciones desprovistas de cualquier descripción suplementaria. Es imprescindible una descripción exhaustiva, como la de la Figura \ref{fig:contexto} para resultados más precisos.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\textwidth]{./imagenes/Gemini_contexto.png}
+    \includegraphics[width=1\textwidth]{./imagenes/Gemini_contexto.png}
     \caption{Ejemplo de instrucciónes descriptivas con Gemini.}
+    \label{fig:contexto}
 \end{figure}
 
 
@@ -65,24 +66,25 @@ Debido a la naturaleza no determinista de los modelos basados en LLM, resulta be
 
 A pesar de seguir las técnicas citadas anteriormente, los modelos de IA generativa no fueron capaces de generar horarios sin solapamientos ni omisiones. Aunque los datos proporcionados en forma de lenguaje natural y en formato JSON, fueron leeidos correctamente la mayoría de las veces, los modelos no pudieron organizar las clases de forma que se ajustaran a las restricciones del problema.\newline
 
-A continuación se muestran imágenes que ejemplifican lo mencionado anteriormente:
+A continuación se muestran en las Figuras \ref{fig:chatgpt} y \ref{fig:gemini} ejemplos de los resultados obtenidos con los modelos de IA generativa:
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{./imagenes/ChatGPT.png}
     \caption{Ejemplo con ChatGPT 3.5: solapa las clases.}
+    \label{fig:chatgpt}
 \end{figure}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{./imagenes/Gemini.png}
     \caption{Ejemplo con Gemini (Bard): omite asignaturas.}
+    \label{fig:gemini}
 \end{figure}
-
 
 \section{Algoritmos de timetabling}
 
-El \textbf{timetabling} puede definirse generalmente como la actividad de asignar, con sujeción a restricciones, una serie de eventos a un número limitado de periodos de tiempo y lugares, de forma que se satisfagan los objetivos deseables en la medida de lo posible. Los casos prácticos en los que se plantea esta actividad son muy variados. En el ámbito educacional, empresarial, deportivo, de comunicación y transporte, entre otros \cite{hybrid-timetabling}.\newline
+El \textbf{timetabling} puede definirse generalmente como la actividad de asignar, con sujeción a restricciones, una serie de eventos a un número limitado de periodos de tiempo y lugares, de forma que se satisfagan los objetivos deseables en la medida de lo posible. Los casos prácticos en los que se plantea esta actividad son muy variados. En el ámbito educacional, empresarial, deportivo, de comunicación y transporte, entre otros \cite{hybrid-timetabling}.\newpage
 
 Generalmente, en las instituciones de enseñanza son dos los problemas de timetabling que surgen: uno para \textbf{exámenes} (Examination Timetabling Problem) y el otro para la \textbf{programación de cursos} (Course Timetabling Problem y Class/Teacher Timetabling Problem o CTTP) \cite{carter}.\newline
 
@@ -95,12 +97,13 @@ Los requisitos blandos, por otra parte, son una lista de deseos con propiedades 
 
 El enfoque adoptado por los primeros intentos de resolver el ETP generalmente consistía en clasificar los exámenes según la dificultad asociada a la programación de los mismos y ordenando a estos como los primeros para evitar que se produjesen solapamientos. Desde entonces, múltiples avances se han producido en la resolución de este problema, incluyendo la aplicación de heurísticas y metaheurísticas, técnicas de construcción secuencial, algoritmos genéticos, etc.
 
-A continuación se muestra un ejemplo de un algoritmo genético\footnote{Algoritmo Genético Interactivo (por sus siglas en inglés, Interactive Genetic Algorithm). Los IGAs son una variación de los algoritmos genéticos tradicionales que involucran la interacción humana en el proceso de optimización.} para resolver el ETP \cite{PILLAY2010457}:
+A continuación se muestra en la Figura \ref{fig:IGA_ETP} un ejemplo de un algoritmo genético\footnote{Algoritmo Genético Interactivo (por sus siglas en inglés, Interactive Genetic Algorithm). Los IGAs son una variación de los algoritmos genéticos tradicionales que involucran la interacción humana en el proceso de optimización.} para resolver el ETP \cite{PILLAY2010457}:
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{./imagenes/IGA_ETP.png}
     \caption{Ejemplo de IGA para evolucionar calendarios ``factibles'' \cite{PILLAY2010457}.}
+    \label{fig:IGA_ETP}
 \end{figure}
 
 % \newpage
@@ -130,12 +133,13 @@ Las restricciones del problema se clasifican en dos clases: duras y blandas. Las
     \item El máximo de horas que un alumno puede tener en un día son 4 horas.
     \item La hora de inicio de las clases puede ser las 8:00 a.m y la de finalización las 20:30 p.m. generalmente.
 \end{itemize}
-A continuación se muestra un ejemplo de un algoritmo para resolver el UCTTP mediante búsqueda iterativa en profundidad:
+A continuación se muestra en la Figura \ref{fig:UCTTP} un ejemplo de un algoritmo para resolver el UCTTP mediante búsqueda iterativa en profundidad:
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.7\textwidth]{./imagenes/UCTTP_Algoritmo.png}
     \caption{Pseudocódigo para algoritmo de UCTTP \cite{Rudova2011}.}
+    \label{fig:UCTTP}
 \end{figure}
 
 
@@ -146,15 +150,16 @@ El CTTP, suele encontrarse en escuelas con planes de estudios menos modulares. T
 Se han aplicado varias técnicas de resolución, desde
 algoritmos basados en la teoría de grafos (de Werra 1996), a la programación binaria (Tri-pathy 1984; Birbas et al. 1997) y enfoques basados en restricciones (Yoshikawa et al. 1994). Además, las metaheurísticas basadas en el recocido simulado (Abramson 1982), las redes neuronales (Gislen et al. 1992), los algoritmos genéticos (Colorni et al. 1991) y la búsqueda tabú (Costa 1994) se han aplicado con éxito a casos concretos, objeto de estudio de los respectivos autores.\newline
 
-En términos generales, el CTTP puede definirse como el problema de programar un conjunto de lecciones (una lección es una asignación previa de una o más clases rígidas de alumnos a un profesor y una asignatura) en un conjunto de periodos de tiempo y aulas adecuadas, satisfaciendo al mismo tiempo una amplia gama de restricciones. Estas pueden dividirse en dos niveles de importancia, como en los problemas de timetabling anteriores: restricciones duras y blandas \cite{carter}.\newpage
+En términos generales, el CTTP puede definirse como el problema de programar un conjunto de lecciones (una lección es una asignación previa de una o más clases rígidas de alumnos a un profesor y una asignatura) en un conjunto de periodos de tiempo y aulas adecuadas, satisfaciendo al mismo tiempo una amplia gama de restricciones. Estas pueden dividirse en dos niveles de importancia, como en los problemas de timetabling anteriores: restricciones duras y blandas \cite{carter}. En la Figura \ref{fig:CTTP} puede verse un ejemplo de un algoritmo de CTTP.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{./imagenes/CTTP.png}
     \caption{Pseudocódigo del algoritmo de búsqueda tabú para el CTTP \cite{tabuSearch}.}
+    \label{fig:CTTP}
 \end{figure}
 
-\newpage
+
 
 \begin{landscape}
     
@@ -201,7 +206,7 @@ En términos generales, el CTTP puede definirse como el problema de programar un
     \label{tab:comparison}
     \end{table}
 \end{landscape}
-\newpage
+
 \section{Trabajos relacionados}
 
 Para intentar solucionar el problema propuesto al principio del documento hay pocas alternativas existentes. Existen múltiples agendas y calendarios electrónicos que nos permitirían llevar el seguimiento de nuestro calendario semanal, pero no resuelven el problema (al menos de forma automática) de generar todas las combinaciones posibles para poder escoger la que más se adapte a nuestras necesidades.\newline
@@ -214,19 +219,20 @@ Llega fin de curso, ya tenemos escogidas las asignaturas que planeamos cursar el
 A priori la opción más simple y menos práctica. Organizamos los grupos según nuestras preferencias: rellenamos el calendario con el grupo del profesor que nos gustaría que nos convalidase las prácticas y vamos poco a poco, a base de en ensayo y error, introduciendo el resto de grupos y combinándolos para evitar solapamientos.
 
 \subsection{Google Calendar}
-Es un servicio de agenda y calendario en línea ofrecido por Google\footnote{\url{https://calendar.google.com/calendar}}.  Permite a los usuarios crear y editar eventos. Los eventos tienen una fecha y hora de inicio y fin, además de una descripción. Los usuarios pueden invitar a otros usuarios a sus eventos, y los eventos pueden ser públicos o privados. Los usuarios pueden ver sus eventos en una vista diaria, semanal o mensual. También permite a los usuarios generar múltiples calendarios y compartirlos con otros usuarios. Los usuarios pueden ver los calendarios de otras personas y superponerlos en su propio calendario. Google Calendar también se integra con otras aplicaciones de Google, como Gmail y Google Meet. Google Calendar también se integra con otras aplicaciones de calendario, como Microsoft Outlook y Apple Calendar. Está disponible en la web y en aplicaciones móviles para Android e iOS.
+Es un servicio de agenda y calendario en línea ofrecido por Google\footnote{\url{https://calendar.google.com/calendar}}.  Permite a los usuarios crear y editar eventos. Los eventos tienen una fecha y hora de inicio y fin, además de una descripción. Los usuarios pueden invitar a otros usuarios a sus eventos, y los eventos pueden ser públicos o privados. Los usuarios pueden ver sus eventos en una vista diaria, semanal o mensual. También permite a los usuarios generar múltiples calendarios y compartirlos con otros usuarios. Los usuarios pueden ver los calendarios de otras personas y superponerlos en su propio calendario. Google Calendar también se integra con otras aplicaciones de Google, como Gmail y Google Meet. Google Calendar también se integra con otras aplicaciones de calendario, como Microsoft Outlook y Apple Calendar. Está disponible en la web y en aplicaciones móviles para Android e iOS. Se muestra un ejemplo de uso en la Figura \ref{fig:google_calendar}.
 
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{./imagenes/Google_Calendar.png}
     \caption{Ejemplo de uso con Google Calendar.}
+    \label{fig:google_calendar}
 \end{figure}
 
 
 
 \subsection{Microsoft Calendar}
-Es una función integrada en aplicaciones como Outlook y Microsoft 365\footnote{\url{https://outlook.live.com/calendar}} que permite a los usuarios gestionar y organizar sus calendarios personales y profesionales. Facilita la creación y edición de citas, reuniones, y eventos, con opciones de recordatorios y notificaciones. Se sincroniza en la nube, ofreciendo acceso desde múltiples dispositivos, y permite compartir calendarios con otros usuarios. Además, se integra con otros servicios de calendario y herramientas de Microsoft, como Teams, facilitando la coordinación en equipos de trabajo y la gestión eficiente del tiempo.
+Es una función integrada en aplicaciones como Outlook y Microsoft 365\footnote{\url{https://outlook.live.com/calendar}} que permite a los usuarios gestionar y organizar sus calendarios personales y profesionales. Facilita la creación y edición de citas, reuniones, y eventos, con opciones de recordatorios y notificaciones. Se sincroniza en la nube, ofreciendo acceso desde múltiples dispositivos, y permite compartir calendarios con otros usuarios. Además, se integra con otros servicios de calendario y herramientas de Microsoft, como Teams, facilitando la coordinación en equipos de trabajo y la gestión eficiente del tiempo. Se muestra un ejemplo de uso en la Figura \ref{fig:microsoft_calendar}.
 
 
 
@@ -235,6 +241,7 @@ Es una función integrada en aplicaciones como Outlook y Microsoft 365\footnote{
     \centering
     \includegraphics[width=1\textwidth]{./imagenes/Microsoft_calendar.png}
     \caption{Ejemplo de uso con Microsoft Calendar.}
+    \label{fig:microsoft_calendar}
 \end{figure}
 
 

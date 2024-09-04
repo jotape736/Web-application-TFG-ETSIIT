@@ -1,36 +1,38 @@
 \chapter{Diseño}
 En esta sección se describirá el diseño de la plataforma \textbf{GAC} (Gestor Académico de Calendarios). Se detallarán los aspectos más relevantes de la arquitectura, la interfaz de usuario y la base de datos.
 
-\newpage
-
 \section{Arquitectura software}
 La arquitectura software se refiere a la vista del sistema que incluye los componentes principales del mismo, la conducta de dichos componentes según se la percibe desde el resto del sistema y las formas en las que interactúan y se coordinan entre sí para lograr los objetivos del sistema. Sus dos principales aspectos son, que provee de un plan de diseño, un ``blueprint'' del sistema a la vez que hace de abstracción del mismo para ayudar a manejar la complejidad del mismo. Una buena arquitectura software es el garante de un sistema que cumple con los requisitos de calidad, como la eficiencia, la fiabilidad, la seguridad, la mantenibilidad, la escalabilidad, la portabilidad, la usabilidad, la interoperabilidad, la disponibilidad y la capacidad de evolución \cite{hofmeister2000applied, reynoso2004introduccion, garlan2008software}.\newline
 
-Para el desarrollo de la plataforma se ha optado por una arquitectura cliente-servidor basada en una Arquitectura Orientada a Servicios (SOA). La API\footnote{\url{https://aws.amazon.com/es/what-is/api/}} ha sido desarrollada en Python y Flask y se encarga de manejar las solicitudes del cliente.\newline
+Para el desarrollo de la plataforma se ha optado por una arquitectura cliente-servidor basada en una Arquitectura Orientada a Servicios (SOA). La API\footnote{\url{https://aws.amazon.com/es/what-is/api/}} ha sido desarrollada en Python y Flask y se encarga de manejar las solicitudes del cliente. Todo lo mencionado puede verse en la Figura \ref{fig:soa}.\newline
+
+\newpage
 
 Adicionalmente, se ha desarrollado un web scraper\footnote{\url{https://kinsta.com/es/base-de-conocimiento/que-es-web-scraping/}} que se encarga de obtener toda la programación docente de la oficina virtual de la Universidad de Granada\footnote{\url{https://oficinavirtual.ugr.es}}. Los usuarios realizan peticiones desde la plataforma web al servidor, el cual se encarga de procesarlas y devolver una respuesta.\newline
 
 \subsection{Arquitectura Orientada a Servicios (SOA)}
 
-La Arquitectura Orientada a Servicios\footnote{\url{https://www.redhat.com/es/topics/cloud-native-apps/what-is-service-oriented-architecture}} es un tipo de diseño de software que permite reutilizar sus elementos gracias a las interfaces de servicios que se comunican a través de una red con un lenguaje común. Un servicio es una unidad autónoma de una o más funciones software, diseñada para realizar una tarea específica, como recuperar cierta información o ejecutar una operación.\newline
+La Arquitectura Orientada a Servicios\footnote{\url{https://www.redhat.com/es/topics/cloud-native-apps/what-is-service-oriented-architecture}} es un tipo de diseño de software que permite reutilizar sus elementos gracias a las interfaces de servicios que se comunican a través de una red con un lenguaje común (Figura \ref{fig:soa_stack}). Un servicio es una unidad autónoma de una o más funciones software, diseñada para realizar una tarea específica, como recuperar cierta información o ejecutar una operación.\newline
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{./imagenes/Arq_Soft_informal.png}
     \caption{Arquietctura Orientada a Servicios basada en Cliente-Servidor.}
+    \label{fig:soa}
 \end{figure}
 
-Desde la perspectiva de quien lo invoca, es vista como una funcionalidad autocontenida que encapsula su implementación, por tanto \textbf{no es necesario saber como está implementado} o como funciona internamente, \textbf{solo es fundamental saber cómo se usa} y qué se espera de él.
+Desde la perspectiva de quien lo invoca, es vista como una funcionalidad autocontenida que encapsula su implementación, por tanto \textbf{no es necesario saber como está implementado} o como funciona internamente, \textbf{solo es fundamental saber cómo se usa} y qué se espera de él. En resumen, un servicio es una interfaz que se expone a través de una red y que se puede invocar para realizar una tarea específica, como puede verse en la Figura \ref{fig:soa_interface}.\newline
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.7\textwidth]{./imagenes/Interfaz_SOA.png}
     \caption{Servicio como interfaz.}
+    \label{fig:soa_interface}
 \end{figure}
 
 Dado que SOA expone los servicios utilizando protocolos estándar de red para enviar solicitudes o acceder a los datos, se facilita la interoperabilidad entre diferentes sistemas y la atomicidad desde la perspectiva del usuario \cite{laskey2009service, 1210138}. Los servicios pueden componerse, constituyendo lo que se conoce como ``building blocks'' y facilitando su reutilización para desarrollar otras aplicaciones. El enfoque está en sus interfaces, no en su implementación, lo que permite a los servicios ser utilizados de forma agnóstica a su ubicación y tecnología.\newline
 
-Hay dos formas de componer servicios en SOA:
+Hay dos formas de componer servicios en SOA (Figura \ref{fig:soa_composition}):
 
 \begin{itemize}
     \item \textbf{Orquestación:} Se construyen funcionalidades más complejas a partir de servicios más simples, mientras que el flujo de control es manejado por un motor de orquestación.
@@ -41,6 +43,7 @@ Hay dos formas de componer servicios en SOA:
     \centering
     \includegraphics[width=1\textwidth]{./imagenes/Orquestacion_y_coreografia.png}
     \caption{Composición de servicios en SOA.}
+    \label{fig:soa_composition}
 \end{figure}
 
 Bajo el marco de una arquitectura cliente-servidor, las llamadas a los servicios se realizan mediante el protocolo HTTP y la información de respuesta se devuelve en formato JSON, estándar en la intercomunicación de esta arquitectura.\newline
@@ -49,6 +52,7 @@ Bajo el marco de una arquitectura cliente-servidor, las llamadas a los servicios
     \centering
     \includegraphics[width=0.5\textwidth]{./imagenes/SOA.png}
     \caption{Pila de software SOA generalizada \cite{soa}.}
+    \label{fig:soa_stack}
 \end{figure}
 
 \subsubsection{Principios de SOA}
@@ -126,49 +130,54 @@ Sin embargo, también presenta inconvenientes, como la necesidad de una infraest
 
 \section{Diseño Lógico}
 
-Los diagramas de clase UML (Unified Modeling Language) son el núcleo del diseño y analisis orientado a objetos y son una forma de modelar la estructura estática de un sistema, por medio de clases, atributos, métodos y relaciones entre ellas \cite{herchi2012user}.\newline
+Los diagramas de clase UML (Unified Modeling Language) son el núcleo del diseño y analisis orientado a objetos y son una forma de modelar la estructura estática de un sistema, por medio de clases, atributos, métodos y relaciones entre ellas \cite{herchi2012user}. Todas las clases del diagrama que se muestra en la Figura \ref{fig:class_diagram}, se traducirán a tablas donde sus campos serán los atributos que se detallan en la figura. A continuación se muestra el diagrama de clases y secuencia de la plataforma.\newline
 
-SQLite ha sido la opción escogida para la base de datos de la plataforma \textbf{GAC}, por los motivos mencionados anteriormente. Todas las clases del diagrama que se muestra a continuación, se traducirán a tablas donde sus campos serán los atributos que se detallan en la figura. A continuación se muestra el diagrama de clases y secuencia de la plataforma.\newline
+Adicionalmente, se ha desarrollado un diagrama de secuencia que muestra la interacción entre los diferentes componentes de la plataforma. En este diagrama se puede observar cómo se realiza la comunicación entre los diferentes elementos de la plataforma como puede verse en la Figura \ref{fig:sequence_diagram}.\newline
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=1\textwidth]{./imagenes/Class_Diagram.png}
-    \caption{Diagrama de clases de la plataforma.}
-\end{figure}
+\newpage
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=1\textwidth]{./imagenes/Secuencia_Diagrama.png}
-    \caption{Diagrama de secuencia de la plataforma.}
-\end{figure}
+\begin{landscape}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=1.6\textwidth]{./imagenes/Class_Diagram.png}
+        \caption{Diagrama de clases de la plataforma.}
+        \label{fig:class_diagram}
+    \end{figure}  
+\end{landscape}
+
+\begin{landscape}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=1.35\textwidth]{./imagenes/Secuencia_Diagrama.png}
+        \caption{Diagrama de secuencia de la plataforma.}
+        \label{fig:sequence_diagram}
+    \end{figure}    
+\end{landscape}
 
 \section{Diseño de Wireframes para Frontend}
 
 Un wireframe\footnote{\url{https://miro.com/es/wireframe/que-es-wireframe/}} es un diagrama visual que esboza el esqueleto de un proyecto o pieza tecnológica. Los diseñadores de UX (User Experience) suelen utilizarlo para trazar el diseño y la composición de su trabajo si entrar en detalles de paletas de color, etc. Es la etapa previa a los mockups y prototipos y se caracterizan por la ausencia de colores y elementos de diseño estético.\newline
 
-El wireframe que se muestra a continuación, pertenece a los primeros bocetos de la interfaz de usuario de la plataforma \textbf{GAC}. En las primeras etapas del diseño se consideró el uso de modelos de IA generativa para el desarrollo de los calendarios. Además se pretendía que la plataforma fuese una especie de organizador personal tipo Google Calendar. Pueden consultarse el resto de diseños en el anexo I.\newline
+Los wireframes que se muestra en las Figuras \ref{fig:wireframe_a} y \ref{fig:wireframe_b}, pertenecen a los primeros bocetos de la interfaz de usuario de la plataforma \textbf{GAC}, realizados con la plataforma Moqups \footnote{\url{https://moqups.com/es/}}. En las primeras etapas del diseño se consideró el uso de modelos de IA generativa para el desarrollo de los calendarios. Además se pretendía que la plataforma fuese una especie de organizador personal tipo Google Calendar. Pueden consultarse el resto de diseños en el anexo I.\newline
 
 
 \begin{figure}[H]
     \centering
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.51\textwidth}
         \centering
         \includegraphics[width=\textwidth]{./imagenes/Mockup_calendario.png}
-        \caption{Calendario académico con asistente.}
+        \caption{Calendario académico con chat de asistente.}
+        \label{fig:wireframe_a}
     \end{subfigure}
     \hfill
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.48\textwidth}
         \centering
         \includegraphics[width=\textwidth]{./imagenes/Mockup_organizador.png}
         \caption{Calendario académico y mensual de actividades.}
+        \label{fig:wireframe_b}
     \end{subfigure}
     \caption{Wireframes de la interfaz de usuario.}
 \end{figure}
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.3\textwidth]{./imagenes/Mockups_smartphone.png}
-    \caption{Calendario con asistente para smartphone.}
-\end{figure}
 
 
