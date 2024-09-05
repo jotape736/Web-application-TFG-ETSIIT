@@ -21,7 +21,7 @@ La Arquitectura Orientada a Servicios\footnote{\url{https://www.redhat.com/es/to
     \label{fig:soa}
 \end{figure}
 
-Desde la perspectiva de quien lo invoca, es vista como una funcionalidad autocontenida que encapsula su implementación, por tanto \textbf{no es necesario saber como está implementado} o como funciona internamente, \textbf{solo es fundamental saber cómo se usa} y qué se espera de él. En resumen, un servicio es una interfaz que se expone a través de una red y que se puede invocar para realizar una tarea específica, como puede verse en la Figura \ref{fig:soa_interface}.\newline
+Desde la perspectiva de quien lo invoca, es vista como una funcionalidad autocontenida que encapsula su implementación, por tanto, \textbf{no es necesario saber como está implementado} o como funciona internamente, \textbf{solo es fundamental saber cómo se usa} y qué se espera de él. En resumen, un servicio es una interfaz que se expone a través de una red y que se puede invocar para realizar una tarea específica, como puede verse en la Figura \ref{fig:soa_interface}.\newline
 
 \begin{figure}[H]
     \centering
@@ -78,7 +78,7 @@ Bajo el marco de una arquitectura cliente-servidor, las llamadas a los servicios
     \end{itemize}
     \item \textbf{Reusabilidad:}
     \begin{itemize}
-        \item [$\circ$] No busca la sustitución de las lógicas de negocio actuales sino que busca proporcionar una forma de aprovechar estos activos, encapsulándolos en serviciops para que estos a su vez puedan ser reutilizados por otros servicios.
+        \item [$\circ$] No busca la sustitución de las lógicas de negocio actuales, sino que busca proporcionar una forma de aprovechar estos activos, encapsulándolos en servicios para que estos a su vez puedan ser reutilizados por otros servicios.
     \end{itemize}
     \item \textbf{Autonomía:}
     \begin{itemize}
@@ -130,7 +130,7 @@ Sin embargo, también presenta inconvenientes, como la necesidad de una infraest
 
 \section{Diseño Lógico}
 
-Los diagramas de clase UML (Unified Modeling Language) son el núcleo del diseño y analisis orientado a objetos y son una forma de modelar la estructura estática de un sistema, por medio de clases, atributos, métodos y relaciones entre ellas \cite{herchi2012user}. Todas las clases del diagrama que se muestra en la Figura \ref{fig:class_diagram}, se traducirán a tablas donde sus campos serán los atributos que se detallan en la figura. A continuación se muestra el diagrama de clases y secuencia de la plataforma.\newline
+Los diagramas de clase UML (Unified Modeling Language) son el núcleo del diseño y análisis orientado a objetos y son una forma de modelar la estructura estática de un sistema, por medio de clases, atributos, métodos y relaciones entre ellas \cite{herchi2012user}. Todas las clases del diagrama que se muestra en la Figura \ref{fig:class_diagram}, se traducirán a tablas donde sus campos serán los atributos que se detallan en la figura. A continuación se muestra el diagrama de clases y secuencia de la plataforma.\newline
 
 Adicionalmente, se ha desarrollado un diagrama de secuencia que muestra la interacción entre los diferentes componentes de la plataforma. En este diagrama se puede observar cómo se realiza la comunicación entre los diferentes elementos de la plataforma como puede verse en la Figura \ref{fig:sequence_diagram}.\newline
 
@@ -158,7 +158,7 @@ Adicionalmente, se ha desarrollado un diagrama de secuencia que muestra la inter
 
 Un wireframe\footnote{\url{https://miro.com/es/wireframe/que-es-wireframe/}} es un diagrama visual que esboza el esqueleto de un proyecto o pieza tecnológica. Los diseñadores de UX (User Experience) suelen utilizarlo para trazar el diseño y la composición de su trabajo si entrar en detalles de paletas de color, etc. Es la etapa previa a los mockups y prototipos y se caracterizan por la ausencia de colores y elementos de diseño estético.\newline
 
-Los wireframes que se muestra en las Figuras \ref{fig:wireframe_a} y \ref{fig:wireframe_b}, pertenecen a los primeros bocetos de la interfaz de usuario de la plataforma \textbf{GAC}, realizados con la plataforma Moqups \footnote{\url{https://moqups.com/es/}}. En las primeras etapas del diseño se consideró el uso de modelos de IA generativa para el desarrollo de los calendarios. Además se pretendía que la plataforma fuese una especie de organizador personal tipo Google Calendar. Pueden consultarse el resto de diseños en el anexo I.\newline
+Los wireframes que se muestra en las Figuras \ref{fig:wireframe_a} y \ref{fig:wireframe_b}, pertenecen a los primeros bocetos de la interfaz de usuario de la plataforma \textbf{GAC}, realizados con la plataforma Moqups \footnote{\url{https://moqups.com/es/}}. En las primeras etapas del diseño se consideró el uso de modelos de IA generativa para el desarrollo de los calendarios. Además, se pretendía que la plataforma fuese una especie de organizador personal tipo Google Calendar. Pueden consultarse el resto de diseños en el anexo I.\newline
 
 
 \begin{figure}[H]
