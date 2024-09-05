@@ -1,6 +1,8 @@
 \chapter{Diseño}
 En esta sección se describirá el diseño de la plataforma \textbf{GAC} (Gestor Académico de Calendarios). Se detallarán los aspectos más relevantes de la arquitectura, la interfaz de usuario y la base de datos.
 
+
+
 \section{Arquitectura software}
 La arquitectura software se refiere a la vista del sistema que incluye los componentes principales del mismo, la conducta de dichos componentes según se la percibe desde el resto del sistema y las formas en las que interactúan y se coordinan entre sí para lograr los objetivos del sistema. Sus dos principales aspectos son, que provee de un plan de diseño, un ``blueprint'' del sistema a la vez que hace de abstracción del mismo para ayudar a manejar la complejidad del mismo. Una buena arquitectura software es el garante de un sistema que cumple con los requisitos de calidad, como la eficiencia, la fiabilidad, la seguridad, la mantenibilidad, la escalabilidad, la portabilidad, la usabilidad, la interoperabilidad, la disponibilidad y la capacidad de evolución \cite{hofmeister2000applied, reynoso2004introduccion, garlan2008software}.\newline
 
@@ -9,6 +11,40 @@ Para el desarrollo de la plataforma se ha optado por una arquitectura cliente-se
 \newpage
 
 Adicionalmente, se ha desarrollado un web scraper\footnote{\url{https://kinsta.com/es/base-de-conocimiento/que-es-web-scraping/}} que se encarga de obtener toda la programación docente de la oficina virtual de la Universidad de Granada\footnote{\url{https://oficinavirtual.ugr.es}}. Los usuarios realizan peticiones desde la plataforma web al servidor, el cual se encarga de procesarlas y devolver una respuesta.\newline
+
+
+\subsection{Arquitectura cliente-servidor}
+
+La arquitectura cliente-servidor (Figura \ref{fig:cliente_servidor}) es un modelo de diseño de software en el que las tareas se reparten entre los proveedores de recursos o servicios, llamados \textbf{servidores}, y los demandantes, llamados \textbf{clientes}. Un cliente realiza una petición a un servidor, el cual procesa la solicitud y devuelve una respuesta. La comunicación entre ambos se realiza a través de una red, generalmente utilizando el protocolo TCP/IP. Actualmente, se emplea el término backend para referirse a los servidores y frontend para los clientes.\newline
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{./imagenes/cliente_servidor.png}
+    \caption{Arquitectura Cliente-Servidor \cite{sucerman2023}.}
+    \label{fig:cliente_servidor}
+\end{figure}
+
+\subsubsection*{Cliente}
+
+El cliente es la parte del sistema que interactúa con el usuario final. Se encarga de enviar solicitudes al servidor y de procesar la respuesta para mostrarla al usuario. Puede ser una aplicación de escritorio, una aplicación web o una aplicación móvil. En el caso de la plataforma \textbf{GAC}, el cliente es una aplicación web que se ejecuta en un navegador.\newline
+
+\subsubsection*{Servidor}
+
+El servidor es la parte del sistema que recibe las solicitudes del cliente, las procesa y devuelve una respuesta. Puede ser un servidor web, un servidor de bases de datos o un servidor de aplicaciones. En el caso de la plataforma \textbf{GAC}, el servidor es un contenedor de Docker que se encarga de gestionar las solicitudes de los clientes y de comunicarse con la base de datos.
+
+\subsubsection*{Ventajas e inconvenientes}
+
+Las ventajas de la arquitectura cliente-servidor son varias, garante de ello es su amplia adopción en la industria del software. Entre las más destacadas se encuentran:
+
+\begin{itemize}
+    \item [$\circ$] Facilidad en la administración y control de los datos al encontrarse los recursos en entornos de servidor controlados
+    \item [$\circ$] Escalabilidad, ya que se pueden ampliar ambos entornos, centrando las necesidades de escalabilidad en el servidor.
+    \item [$\circ$] Permite el mantenimiento individual de las capas software, lo que permite aislar problemas y facilitar la corrección de errores.
+    \item [$\circ$] Desarrollo menos dependiente, ya que se pueden desarrollar las capas de forma separada.
+\end{itemize}
+
+Sin embargo, también presenta inconvenientes, como la necesidad de una infraestructura de red para la comunicación entre cliente y servidor, la dependencia de la disponibilidad del servidor y la necesidad de una mayor seguridad en la comunicación entre ambos.\newline
+
 
 \subsection{Arquitectura Orientada a Servicios (SOA)}
 
@@ -103,31 +139,6 @@ Bajo el marco de una arquitectura cliente-servidor, las llamadas a los servicios
     \end{itemize}
 \end{itemize}
 
-\subsection{Arquitectura cliente-servidor}
-
-La arquitectura cliente-servidor es un modelo de diseño de software en el que las tareas se reparten entre los proveedores de recursos o servicios, llamados \textbf{servidores}, y los demandantes, llamados \textbf{clientes}. Un cliente realiza una petición a un servidor, el cual procesa la solicitud y devuelve una respuesta. La comunicación entre ambos se realiza a través de una red, generalmente utilizando el protocolo TCP/IP. Actualmente, se emplea el término backend para referirse a los servidores y frontend para los clientes.\newline
-
-\subsubsection*{Cliente}
-
-El cliente es la parte del sistema que interactúa con el usuario final. Se encarga de enviar solicitudes al servidor y de procesar la respuesta para mostrarla al usuario. Puede ser una aplicación de escritorio, una aplicación web o una aplicación móvil. En el caso de la plataforma \textbf{GAC}, el cliente es una aplicación web que se ejecuta en un navegador.\newline
-
-\subsubsection*{Servidor}
-
-El servidor es la parte del sistema que recibe las solicitudes del cliente, las procesa y devuelve una respuesta. Puede ser un servidor web, un servidor de bases de datos o un servidor de aplicaciones. En el caso de la plataforma \textbf{GAC}, el servidor es un contenedor de Docker que se encarga de gestionar las solicitudes de los clientes y de comunicarse con la base de datos.\newline
-
-\subsubsection*{Ventajas e inconvenientes}
-
-Las ventajas de la arquitectura cliente-servidor son varias, garante de ello es su amplia adopción en la industria del software. Entre las más destacadas se encuentran:
-
-\begin{itemize}
-    \item [$\circ$] Facilidad en la administración y control de los datos al encontrarse los recursos en entornos de servidor controlados
-    \item [$\circ$] Escalabilidad, ya que se pueden ampliar ambos entornos, centrando las necesidades de escalabilidad en el servidor.
-    \item [$\circ$] Permite el mantenimiento individual de las capas software, lo que permite aislar problemas y facilitar la corrección de errores.
-    \item [$\circ$] Desarrollo menos dependiente, ya que se pueden desarrollar las capas de forma separada.
-\end{itemize}
-
-Sin embargo, también presenta inconvenientes, como la necesidad de una infraestructura de red para la comunicación entre cliente y servidor, la dependencia de la disponibilidad del servidor y la necesidad de una mayor seguridad en la comunicación entre ambos.\newline
-
 \section{Diseño Lógico}
 
 Los diagramas de clase UML (Unified Modeling Language) son el núcleo del diseño y análisis orientado a objetos y son una forma de modelar la estructura estática de un sistema, por medio de clases, atributos, métodos y relaciones entre ellas \cite{herchi2012user}. Todas las clases del diagrama que se muestra en la Figura \ref{fig:class_diagram}, se traducirán a tablas donde sus campos serán los atributos que se detallan en la figura. A continuación se muestra el diagrama de clases y secuencia de la plataforma.\newline
@@ -158,7 +169,7 @@ Adicionalmente, se ha desarrollado un diagrama de secuencia que muestra la inter
 
 Un wireframe\footnote{\url{https://miro.com/es/wireframe/que-es-wireframe/}} es un diagrama visual que esboza el esqueleto de un proyecto o pieza tecnológica. Los diseñadores de UX (User Experience) suelen utilizarlo para trazar el diseño y la composición de su trabajo si entrar en detalles de paletas de color, etc. Es la etapa previa a los mockups y prototipos y se caracterizan por la ausencia de colores y elementos de diseño estético.\newline
 
-Los wireframes que se muestra en las Figuras \ref{fig:wireframe_a} y \ref{fig:wireframe_b}, pertenecen a los primeros bocetos de la interfaz de usuario de la plataforma \textbf{GAC}, realizados con la plataforma Moqups \footnote{\url{https://moqups.com/es/}}. En las primeras etapas del diseño se consideró el uso de modelos de IA generativa para el desarrollo de los calendarios. Además, se pretendía que la plataforma fuese una especie de organizador personal tipo Google Calendar. Pueden consultarse el resto de diseños en el anexo I.\newline
+Los wireframes que se muestra en las Figuras \ref{fig:wireframe_a} y \ref{fig:wireframe_b}, pertenecen a los primeros bocetos de la interfaz de usuario de la plataforma \textbf{GAC}, realizados con la plataforma Moqups \footnote{\url{https://moqups.com/es/}}. En las primeras etapas del diseño se consideró el uso de modelos de IA generativa para el desarrollo de los calendarios. Además, se pretendía que la plataforma fuese una especie de organizador personal tipo Google Calendar. Pueden consultarse el resto de diseños en el Anexo I.\newline
 
 
 \begin{figure}[H]

@@ -56,7 +56,7 @@ Para llevar a cabo este proyecto, se ha optado por una metodología de desarroll
 \begin{enumerate}
     \item \textbf{Flexibilidad:} Al asumir los roles de programador y usuario de la aplicación, la capacidad de adaptación cobró gran relevancia. Los requisitos podían modificarse conforme progresaba el desarrollo. La implementación de Scrum, con sus ciclos de trabajo cortos (sprints) y revisiones frecuentes, me permitió ajustar el producto a medida que avanzaba el proyecto.
     \item \textbf{Desarrollo incremental:} Scrum se basa en la idea de que es mejor entregar un producto funcional en partes pequeñas y regulares que esperar a tener un producto completo. Esta filosofía me permitió avanzar en el desarrollo de la plataforma de manera progresiva y constante, entregando funcionalidades completas y probadas en cada sprint.
-    \item \textbf{Iteratividad:} La metodología Scrum se basa en la creación de versiones del producto en ciclos cortos y regulares. Esto me permitió obtener retroalimentación temprana y realizar ajustes en función de ella, lo que resultó fundamental para el éxito del proyecto.
+    \item \textbf{Iterativo:} La metodología Scrum se basa en la creación de versiones del producto en ciclos cortos y regulares. Esto me permitió obtener retroalimentación temprana y realizar ajustes en función de ella, lo que resultó fundamental para el éxito del proyecto.
 \end{enumerate}
 
 \section{Temporización}
@@ -74,12 +74,14 @@ El proyecto comenzó en Diciembre de 2023. Para ilustrar la planificación del p
 
 El desarrollo completo de la plataforma se ha extendido a lo largo de 8 meses. Durante este período, se llevaron a cabo las diversas etapas del proyecto, las cuales se detallan en el siguiente diagrama de Gantt (Figura \ref{fig:gantt}).
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=1\textwidth]{imagenes/gantt.png}
-    \caption{Diagrama de Gantt del proyecto.}
-    \label{fig:gantt}
-\end{figure}
+\begin{landscape}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=1.65\textwidth]{imagenes/gantt.png}
+        \caption{Diagrama de Gantt del proyecto.}
+        \label{fig:gantt}
+    \end{figure}    
+\end{landscape}
 
 \section{Recursos y costes}
 
@@ -102,9 +104,23 @@ Para el desarrollo de la plataforma se ha utilizado un portátil personal y un s
     \begin{tabular}[c]{@{}c@{}}Acer Aspire 3 A315-59-504M -\\  Intel® Core™ i5-1235U -\\  16GB RAM\end{tabular} & 749 €                                   & \multirow{2}{*}{846,90€}                  &  &  \\ \cline{1-2}
     \begin{tabular}[c]{@{}c@{}}Monitor -\\ Asus VZ239HE 23" Full HD IPS\end{tabular}                            & 97,90€                                  &                                           &  &  \\ \cline{1-3}
     \end{tabular}
-    \caption{Coste de Materiales}
+    \caption{Coste de Materiales.}
     \label{tab:coste_materiales}
 \end{table}
+
+En cuanto a las licencias necesarias para este proyecto, se han utilizado exclusivamente tecnologías de código abierto con el propósito de reducir costos. Como resultado de esta decisión, no ha habido ningún gasto en licencias. Para calcular el coste del hardware mencionado en la sección de materiales, es esencial tener en cuenta la vida útil estimada de los dispositivos, como un portátil, que se estima en 5 años \footnote{\url{https://www.minitool.com/es/respaldar-datos/cuanto-dura-un-ordenador-portatil.html}}.
+
+\begin{equation}
+    \textbf{Coste Anual} = \frac {\text{Coste Materiales}}{\text{5 años}} = \text{169,38 €/año}
+\end{equation}
+
+\begin{equation}
+    \textbf{Coste Mensual} = \frac {\text{Coste Anual}}{\text{12 meses}} = \text{14,11 €/mes}
+\end{equation}
+
+\begin{equation}
+    \textbf{Materiales x 8 Meses} = \text{14,11 €/mes} \times \text{8 meses} = \text{113,04 €}
+\end{equation}
 
 
 \subsection{Presupuesto}
@@ -145,16 +161,6 @@ Teniendo en cuenta las 30 horas de trabajo, se puede calcular el coste total del
     \textbf{Coste Salario} = \text{16 Horas} \times \text{10,16 €/Hora} = \text{169,60 €}
 \end{equation}
 
-En cuanto a las licencias necesarias para este proyecto, se han utilizado exclusivamente tecnologías de código abierto con el propósito de reducir costos. Como resultado de esta decisión, no ha habido ningún gasto en licencias. Para calcular el coste del hardware mencionado en la sección de materiales, es esencial tener en cuenta la vida útil estimada de los dispositivos, como un portátil, que se estima en 5 años \footnote{\url{https://www.minitool.com/es/respaldar-datos/cuanto-dura-un-ordenador-portatil.html}}.
-
-\begin{equation}
-    \textbf{Coste Anual} = \frac {\text{Coste Materiales}}{\text{5 años}} = \text{169,38 €/año}
-\end{equation}
-
-\begin{equation}
-    \textbf{Materiales x 8 Meses} = \left(\frac {\text{Coste Materiales}}{\text{5 años}}\right) \times 8 \text{ Meses} = \text{1.355,04 €}
-\end{equation}
-
 Sumando los costes de salario y materiales, se obtiene el coste total del proyecto (Figura \ref{tab:coste_total}).
 
 \begin{table}[H]
@@ -164,9 +170,9 @@ Sumando los costes de salario y materiales, se obtiene el coste total del proyec
     \multicolumn{1}{|l|}{Concepto} & \multicolumn{1}{l|}{Coste (€)} &  &  \\ \cline{1-2}
     Salario Desarrollador           & 2.500,00                        &  &  \\ \cline{1-2}
     Salario Diseñador               & 169,60                         &  &  \\ \cline{1-2}
-    Materiales                      & 1.355,04                       &  &  \\ \cline{1-2}
-    \textbf{Total}                   & \textbf{4.024,64}               &  &  \\ \cline{1-2}
+    Materiales                      & 113,04                       &  &  \\ \cline{1-2}
+    \textbf{Total}                   & \textbf{2.782,64}               &  &  \\ \cline{1-2}
     \end{tabular}
-    \caption{Coste Total del Proyecto}
+    \caption{Coste Total del Proyecto \textbf{(Cálculo libre de impuestos)}.}
     \label{tab:coste_total}
 \end{table}
