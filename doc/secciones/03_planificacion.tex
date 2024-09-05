@@ -31,17 +31,32 @@ Dichos valores y principios se encuentran recogidos en el Manifiesto Ágil \cite
     \item \textbf{Kanban:} Se trata de un método visual para la gestión de proyectos que se basa en la utilización de tableros y tarjetas para representar las tareas y su estado. Kanban es una metodología ágil que se centra en la mejora continua y en la optimización del flujo de trabajo. En un tablero Kanban (Figura \ref{fig:kanban}), las tareas se dividen en columnas que representan diferentes estados del proceso, como "pendiente", "en progreso" y "completado". Los miembros del equipo pueden mover las tarjetas de una columna a otra a medida que avanzan en su trabajo, lo que permite visualizar de forma clara y sencilla el estado de las tareas y identificar posibles cuellos de botella o retrasos.
     \begin{figure}[H]
         \centering
-        \includegraphics[width=0.6\textwidth]{imagenes/kanban.png}
+        \includegraphics[width=0.7\textwidth]{imagenes/kanban.png}
         \caption{Ejemplo de tablero Kanban \cite{kirovska2015usage}.}
         \label{fig:kanban}
     \end{figure}
     \item \textbf{Scrum:} Es un marco de trabajo ágil que se centra en la colaboración, la transparencia y la adaptabilidad. En Scrum, los proyectos se dividen en iteraciones cortas llamadas ``sprints'' (Figura \ref{fig:scrum}), que suelen tener una duración de 2 a 4 semanas. Durante cada sprint, el equipo se compromete a completar un conjunto de tareas específicas y al final del sprint se realiza una revisión para evaluar los resultados y planificar el siguiente sprint. Scrum se basa en roles definidos, como el ``Product Owner'', el ``Scrum Master'' y el ``Equipo de Desarrollo'', que trabajan juntos para lograr los objetivos del proyecto.
     \begin{figure}[H]
         \centering
-        \includegraphics[width=0.6\textwidth]{imagenes/scrum.png}
+        \includegraphics[width=0.7\textwidth]{imagenes/scrum.png}
         \caption{Ejemplo de tablero Scrum \cite{karabiyik2020understanding}.}
         \label{fig:scrum}
     \end{figure}
+    \item \textbf{Lean:} Es una metodología ágil que se centra en la eliminación de desperdicios (Figura \ref{fig:lean}) y la maximización del valor para el cliente. Lean se basa en el concepto de ``valor'' y busca identificar y eliminar todo aquello que no aporta valor al cliente. Al eliminar los desperdicios y optimizar los procesos, Lean permite a las organizaciones ser más eficientes y competitivas.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\textwidth]{imagenes/lean.png}
+        \caption{Principios de Lean \cite{cawley2010lean}.}
+        \label{fig:lean}
+    \end{figure}
+\end{enumerate}
+
+Para llevar a cabo este proyecto, se ha optado por una metodología de desarrollo ágil, en este caso \textbf{Scrum}. Esta elección fue motivada por las siguientes razones:
+
+\begin{enumerate}
+    \item \textbf{Flexibilidad:} Al asumir los roles de programador y usuario de la aplicación, la capacidad de adaptación cobró gran relevancia. Los requisitos podían modificarse conforme progresaba el desarrollo. La implementación de Scrum, con sus ciclos de trabajo cortos (sprints) y revisiones frecuentes, me permitió ajustar el producto a medida que avanzaba el proyecto.
+    \item \textbf{Desarrollo incremental:} Scrum se basa en la idea de que es mejor entregar un producto funcional en partes pequeñas y regulares que esperar a tener un producto completo. Esta filosofía me permitió avanzar en el desarrollo de la plataforma de manera progresiva y constante, entregando funcionalidades completas y probadas en cada sprint.
+    \item \textbf{Iteratividad:} La metodología Scrum se basa en la creación de versiones del producto en ciclos cortos y regulares. Esto me permitió obtener retroalimentación temprana y realizar ajustes en función de ella, lo que resultó fundamental para el éxito del proyecto.
 \end{enumerate}
 
 \section{Temporización}
@@ -50,7 +65,7 @@ El proyecto comenzó en Diciembre de 2023. Para ilustrar la planificación del p
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\textwidth]{imagenes/cronograma.png}
+    \includegraphics[width=1\textwidth]{imagenes/cronograma.png}
     \caption{Cronograma del proyecto.}
     \label{fig:cronograma}
 \end{figure}
@@ -76,7 +91,7 @@ Para el desarrollo de la plataforma \textbf{GAC}, se ha contado con un único de
 
 \subsection{Materiales}
 
-Para el desarrollo de la plataforma se ha utilizado un portátil personal y un segundo monitor, el cual ha sido de gran utilidad para la realización de tareas de desarrollo y diseño, al permitir visualizar de forma simultánea varias ventanas y herramientas. Ambos dispositivos son propiedad del autor.
+Para el desarrollo de la plataforma se ha utilizado un portátil personal y un segundo monitor (Figura \ref{tab:coste_materiales}), el cual ha sido de gran utilidad para la realización de tareas de desarrollo y diseño, al permitir visualizar de forma simultánea varias ventanas y herramientas. Ambos dispositivos son propiedad del autor.
 
 % Please add the following required packages to your document preamble:
 % \usepackage{multirow}
@@ -88,6 +103,7 @@ Para el desarrollo de la plataforma se ha utilizado un portátil personal y un s
     \begin{tabular}[c]{@{}c@{}}Monitor -\\ Asus VZ239HE 23" Full HD IPS\end{tabular}                            & 97,90€                                  &                                           &  &  \\ \cline{1-3}
     \end{tabular}
     \caption{Coste de Materiales}
+    \label{tab:coste_materiales}
 \end{table}
 
 
@@ -111,7 +127,7 @@ Teniendo en cuenta las 200 horas de trabajo, se puede calcular el coste total de
     \textbf{Coste Salario} = \text{200 Horas} \times \text{12,50 €/Hora} = \text{2.500 €}
 \end{equation}
 
-Para el diseño, se tendrá en cuenta el perfil de un diseñador gráfico, cuyo salario anual oscila entre los 17.000 € - 22.000 €. Teniendo en cuenta que el diseño ha supuesto un aproximado de 30 horas. Partiendo de esta información, se puede calcular el coste total del salario del diseñador, el cual se detalla a continuación:
+Para el diseño, se tendrá en cuenta el perfil de un diseñador gráfico, cuyo salario anual oscila entre los 17.000 € - 22.000 € \footnote{\url{https://www.glassdoor.es/Sueldos/disenador-grafico-sueldo-SRCH_KO0,17.htm}}. Teniendo en cuenta que el diseño ha supuesto un aproximado de 16 horas. Partiendo de esta información, se puede calcular el coste total del salario del diseñador, el cual se detalla a continuación:
 
 \begin{equation}
     \textbf{Salario medio Diseñador Gráfico} =  \frac {\text{19.500 €/Año} }{ \text{12 meses}} = \text{1.625 €/Mes}
@@ -126,7 +142,7 @@ El salario por hora se calcula dividiendo el salario mensual entre 160 horas, qu
 Teniendo en cuenta las 30 horas de trabajo, se puede calcular el coste total del salario del diseñador:
 
 \begin{equation}
-    \textbf{Coste Salario} = \text{30 Horas} \times \text{10,16 €/Hora} = \text{304,80 €}
+    \textbf{Coste Salario} = \text{16 Horas} \times \text{10,16 €/Hora} = \text{169,60 €}
 \end{equation}
 
 En cuanto a las licencias necesarias para este proyecto, se han utilizado exclusivamente tecnologías de código abierto con el propósito de reducir costos. Como resultado de esta decisión, no ha habido ningún gasto en licencias. Para calcular el coste del hardware mencionado en la sección de materiales, es esencial tener en cuenta la vida útil estimada de los dispositivos, como un portátil, que se estima en 5 años \footnote{\url{https://www.minitool.com/es/respaldar-datos/cuanto-dura-un-ordenador-portatil.html}}.
@@ -147,9 +163,9 @@ Sumando los costes de salario y materiales, se obtiene el coste total del proyec
     \cline{1-2}
     \multicolumn{1}{|l|}{Concepto} & \multicolumn{1}{l|}{Coste (€)} &  &  \\ \cline{1-2}
     Salario Desarrollador           & 2.500,00                        &  &  \\ \cline{1-2}
-    Salario Diseñador               & 304,80                         &  &  \\ \cline{1-2}
+    Salario Diseñador               & 169,60                         &  &  \\ \cline{1-2}
     Materiales                      & 1.355,04                       &  &  \\ \cline{1-2}
-    \textbf{Total}                   & \textbf{4.159,84}               &  &  \\ \cline{1-2}
+    \textbf{Total}                   & \textbf{4.024,64}               &  &  \\ \cline{1-2}
     \end{tabular}
     \caption{Coste Total del Proyecto}
     \label{tab:coste_total}
